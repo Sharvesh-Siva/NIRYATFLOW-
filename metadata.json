@@ -1,0 +1,6 @@
+{
+  "name": "NiryatFlow AI",
+  "description": "Enterprise export operations, digital twin workflow, and financial intelligence platform for Indian exporters.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

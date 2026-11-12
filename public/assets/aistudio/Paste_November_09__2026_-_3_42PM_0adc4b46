@@ -1,0 +1,1965 @@
+# NIRYATFLOW AI
+# COMPLETE MASTER DEVELOPMENT PROMPT
+## Full-Stack Product Engineering | AI Intelligence | Export Fintech | Digital Twin | Premium UI/UX | Motion Design | PayPal Sandbox
+
+---
+
+# SECTION 0 — YOUR ROLE AND DEVELOPMENT RESPONSIBILITY
+
+You are an integrated senior software product development team consisting of:
+
+1. Principal Software Architect
+2. Senior Full-Stack Engineer
+3. Senior React and TypeScript Developer
+4. Fintech Application Architect
+5. AI/LLM Integration Engineer
+6. Export Operations Domain Specialist
+7. Financial Systems Engineer
+8. UI/UX Design Director
+9. Motion and Interaction Designer
+10. Database Architect
+11. Application Security Engineer
+12. Quality Assurance Engineer
+
+Your responsibility is to design, engineer, implement, test and deliver a complete working application named **NiryatFlow AI**.
+
+Do not approach this as a simple website-building assignment.
+
+This is a complete software product development assignment.
+
+The final application must combine:
+
+- Export order management.
+- AI-assisted order intelligence.
+- Deterministic financial calculations.
+- Export documentation management.
+- International payment collection through PayPal Sandbox.
+- Export performance intelligence.
+- An interconnected Export Order Digital Twin.
+- A premium, highly interactive application experience.
+
+You must implement the actual application rather than merely describing how it should be implemented.
+
+Do not stop after creating the dashboard.
+
+Do not produce a static prototype.
+
+Do not replace missing functionality with decorative components.
+
+Every feature must either work or have a clearly identified implementation limitation.
+
+---
+
+# SECTION 1 — PROJECT IDENTITY AND BUSINESS PROBLEM
+
+## 1.1 Product identity
+
+Product name: NiryatFlow AI
+
+Product category: AI-powered export operations and financial intelligence platform.
+
+Primary market: India.
+
+Primary users: Indian MSME exporters, small export businesses and cross-border trading businesses.
+
+Core concept:
+
+"An intelligent export operating system that transforms an export order into a connected, trackable and financially understandable digital workflow."
+
+## 1.2 Problem being addressed
+
+Small and medium-sized exporters frequently manage export activities through disconnected tools, spreadsheets, documents and payment platforms.
+
+This creates several difficulties:
+
+- Export order information is scattered.
+- Financial viability is difficult to calculate.
+- Currency conversion introduces uncertainty.
+- Payment charges affect actual profitability.
+- Export documentation can become incomplete.
+- Payment status and order status are disconnected.
+- Business owners lack a unified view of export performance.
+- Identifying the next action in an export order can be difficult.
+
+NiryatFlow AI addresses these problems through one interconnected application.
+
+## 1.3 Core value proposition
+
+The user should be able to:
+
+1. Create or import an export order.
+2. Extract and organise relevant information using AI.
+3. Validate the extracted order information.
+4. Calculate financial viability using deterministic calculations.
+5. Track document readiness.
+6. Initiate and capture an international payment through PayPal Sandbox.
+7. Monitor the complete export order lifecycle.
+8. Understand business performance using actual order and payment records.
+
+The entire workflow must be interconnected.
+
+Information should not have to be repeatedly entered into different modules when it already exists in the application.
+
+---
+
+# SECTION 2 — NON-NEGOTIABLE PROJECT CONSTRAINTS
+
+These requirements take precedence over implementation convenience.
+
+## 2.1 Preserve the original project
+
+Before modifying any existing source code:
+
+- Inspect the existing project.
+- Read its package configuration.
+- Understand its folder structure.
+- Identify existing components.
+- Inspect current business logic.
+- Identify implemented and incomplete functionality.
+- Review existing environment variables.
+- Identify existing integrations.
+- Understand the current data model.
+- Identify existing application routes.
+
+Do not overwrite or replace working code unnecessarily.
+
+Do not change the original business concept.
+
+Do not remove any previously agreed functionality.
+
+Do not introduce a new workflow that conflicts with the original workflow.
+
+Do not change existing calculation assumptions without justification.
+
+If an implementation decision is unclear, document the ambiguity rather than inventing a business rule.
+
+## 2.2 Development and financial constraints
+
+The project must be developed using free-tier or open-source resources.
+
+Target additional expenditure: ₹0.
+
+Selected environment:
+
+- Google AI Studio for development.
+- React for the application interface.
+- TypeScript for type safety.
+- Tailwind CSS for styling, where appropriate.
+- Gemini free-tier access for AI functionality.
+- PayPal Sandbox for payment integration.
+- GitHub for source control.
+- Cloudflare or Vercel free-tier hosting, where suitable.
+
+Do not introduce paid APIs, paid databases, paid animation libraries, paid hosting or paid domains.
+
+Check the current free-tier requirements and limitations before depending on an external service.
+
+Do not claim that an external service is unlimited or permanently free.
+
+If a service requires payment or billing activation, do not silently introduce it.
+
+## 2.3 Explicitly excluded functionality
+
+The initial project is a working demonstration and prototype, not a production financial institution.
+
+Do not introduce:
+
+- Live customs-system integrations.
+- Live government-system integrations.
+- Live banking integrations.
+- Real-money production payment processing.
+- Native Android application development.
+- Paid AI APIs.
+- Paid third-party financial APIs.
+- Unnecessary paid infrastructure.
+
+Do not pretend that the prototype is officially connected to Indian government export systems.
+
+Do not claim that AI-generated information constitutes legal or regulatory certification.
+
+Keep PayPal payments within Sandbox.
+
+---
+
+# SECTION 3 — FIVE CORE FUNCTIONAL MODULES
+
+Build the following five modules without changing their responsibilities.
+
+## MODULE 1: EXPORT ORDER INTELLIGENCE
+
+Purpose: Capture, structure, understand and manage export orders.
+
+## MODULE 2: FINANCIAL INTELLIGENCE
+
+Purpose: Calculate financial viability, currency conversion, payment charges, advance payments and profitability.
+
+## MODULE 3: EXPORT DOCUMENT INTELLIGENCE
+
+Purpose: Organise export documentation, monitor document readiness and identify missing or incomplete documentation.
+
+## MODULE 4: PAYPAL PAYMENT INTEGRATION
+
+Purpose: Integrate actual PayPal Sandbox order creation, approval, capture and payment verification.
+
+## MODULE 5: EXPORT PERFORMANCE INTELLIGENCE
+
+Purpose: Analyse export-order performance, payment status, profitability and business-level operational metrics using actual application data.
+
+The Export Order Digital Twin connects all five modules.
+
+The dashboard is the main application overview, not a sixth core module.
+
+---
+
+# SECTION 4 — SIX APPLICATION SCREENS
+
+Build the following six major screens.
+
+1. Dashboard.
+2. New Export Order.
+3. Financial Intelligence.
+4. Document Centre.
+5. PayPal Payments.
+6. Export Order Digital Twin.
+
+All screens must share the same application architecture, navigation system, data model and design system.
+
+---
+
+# SECTION 5 — COMPLETE END-TO-END BUSINESS WORKFLOW
+
+The application must support the following lifecycle.
+
+## STEP 1: EXPORT ORDER CREATION
+
+The user starts by creating a new export order.
+
+Provide two primary methods:
+
+A. Manual entry.
+
+B. AI-assisted extraction from an uploaded supported document or order description.
+
+Collect relevant information such as:
+
+- Export order ID.
+- Exporter details.
+- Buyer details.
+- Buyer country.
+- Product name.
+- Product description.
+- Product quantity.
+- Unit of measurement.
+- Unit price.
+- Total order value.
+- Currency.
+- Delivery destination.
+- Incoterm, where supplied.
+- Order date.
+- Expected shipment date.
+- Payment terms.
+- Advance payment percentage.
+- Additional relevant order details.
+
+Use appropriate input validation.
+
+Do not invent mandatory fields that are not needed by the existing workflow.
+
+Generate unique order identifiers.
+
+Save the order and make it available to the other modules.
+
+## STEP 2: AI-ASSISTED ORDER INTELLIGENCE
+
+Integrate Gemini for information extraction and interpretation.
+
+The user should be able to provide supported documents or structured text.
+
+The AI should:
+
+- Identify relevant export-order fields.
+- Extract buyer information.
+- Identify product information.
+- Identify order quantities.
+- Identify pricing information.
+- Identify currency.
+- Identify payment terms.
+- Structure the extracted information.
+- Identify missing information.
+- Identify conflicting information.
+- Highlight uncertain extraction results.
+
+The extracted data must be presented in an editable review interface.
+
+Provide confidence or uncertainty indicators where supported.
+
+The AI must never silently convert uncertain information into confirmed order data.
+
+The user must be able to review and approve extracted information before it becomes authoritative order information.
+
+Separate the AI extraction layer from the actual order database.
+
+AI is responsible for interpretation and extraction, not financial authority.
+
+## STEP 3: FINANCIAL INTELLIGENCE
+
+Once an order is available, calculate its financial viability.
+
+Use deterministic application logic.
+
+Calculate:
+
+- Gross order value.
+- Currency conversion.
+- Applicable payment fees.
+- Advance payment amount.
+- Outstanding payment amount.
+- Additional costs supplied by the user.
+- Estimated net revenue.
+- Estimated profit.
+- Profit margin.
+
+The calculation engine must use explicit inputs and documented assumptions.
+
+AI may explain the results but must never generate or modify the calculated values.
+
+## STEP 4: DOCUMENT READINESS
+
+Associate the export order with its documentation checklist.
+
+Display:
+
+- Required documents.
+- Uploaded documents.
+- Missing documents.
+- Pending review.
+- Verified documents.
+- Document completion percentage.
+
+Document requirements must be configurable.
+
+Do not automatically claim legal compliance.
+
+Do not consider a document verified merely because it exists or has been uploaded.
+
+## STEP 5: PAYPAL SANDBOX PAYMENT
+
+The user should be able to initiate a payment for an associated export order.
+
+The application must:
+
+1. Identify the relevant order.
+2. Retrieve the actual payment amount.
+3. Identify the applicable currency.
+4. Display relevant payment information.
+5. Create a PayPal Sandbox order through the backend.
+6. Allow the user to approve the payment.
+7. Capture the payment through the backend.
+8. Verify the capture result.
+9. Store the transaction reference.
+10. Update the associated payment record.
+11. Update the export order lifecycle.
+
+The application must distinguish:
+
+- Payment not initiated.
+- Payment pending approval.
+- Payment approved.
+- Payment captured.
+- Payment failed.
+- Payment cancelled.
+- Payment requiring reconciliation.
+
+Never display successful payment status before receiving and validating the actual backend capture response.
+
+## STEP 6: EXPORT ORDER DIGITAL TWIN
+
+After the information has been collected across the modules, display a unified order representation.
+
+The user must be able to see:
+
+- Order creation status.
+- AI extraction status.
+- Financial assessment status.
+- Documentation readiness.
+- Payment status.
+- Overall order progress.
+- Relevant outstanding actions.
+
+The Digital Twin must update whenever the underlying order information changes.
+
+It must not be an isolated page containing manually generated information.
+
+## STEP 7: EXPORT PERFORMANCE INTELLIGENCE
+
+Analyse the information accumulated across export orders.
+
+Display useful metrics, including:
+
+- Total export orders.
+- Active export orders.
+- Completed export orders.
+- Pending orders.
+- Total order value.
+- Total captured payments.
+- Outstanding payments.
+- Estimated profit.
+- Average order value.
+- Document readiness.
+- Payment success rate.
+- Historical performance trends.
+
+Calculate all metrics using actual available records.
+
+Handle empty datasets properly.
+
+Never present fabricated statistics as actual business performance.
+
+---
+
+# SECTION 6 — SCREEN 1: MAIN DASHBOARD
+
+Create an enterprise-grade dashboard.
+
+The dashboard must communicate the business position immediately.
+
+## Required sections
+
+### A. Overview
+
+Display:
+
+- Total export orders.
+- Active orders.
+- Total export value.
+- Captured payment value.
+- Outstanding payments.
+- Estimated profit.
+
+### B. Export activity
+
+Provide a visual representation of:
+
+- Order creation trends.
+- Order status distribution.
+- Payment progress.
+- Export activity over time.
+
+### C. Financial overview
+
+Display:
+
+- Revenue-related metrics.
+- Estimated profitability.
+- Payment collection.
+- Outstanding amounts.
+
+### D. Document readiness
+
+Display:
+
+- Orders with complete documentation.
+- Orders with missing documents.
+- Orders awaiting review.
+
+### E. Recent activity
+
+Display meaningful events such as:
+
+- New order created.
+- Order updated.
+- AI extraction completed.
+- Financial assessment updated.
+- Document uploaded.
+- Payment initiated.
+- Payment captured.
+
+### F. Quick actions
+
+Provide direct access to:
+
+- Create new export order.
+- Review financial intelligence.
+- Open document centre.
+- Initiate payment.
+- View order digital twin.
+
+Every metric and action must be connected to actual application functionality.
+
+---
+
+# SECTION 7 — SCREEN 2: NEW EXPORT ORDER
+
+Create a professional order-intake experience.
+
+The interface should support manual entry and AI-assisted extraction.
+
+## Manual entry interface
+
+Organise the fields into logical groups:
+
+1. Exporter information.
+2. Buyer information.
+3. Product information.
+4. Commercial details.
+5. Payment details.
+6. Shipment details.
+
+Use clear labels and contextual guidance.
+
+## AI-assisted extraction interface
+
+Provide a document upload area.
+
+Support the file types actually supported by the implementation.
+
+Implement:
+
+- File validation.
+- File-size validation.
+- Upload progress.
+- Extraction progress.
+- Error handling.
+- Structured extraction results.
+- Editable review fields.
+- Missing-information identification.
+
+Do not expose the Gemini API key in frontend source code.
+
+Use secure backend mediation or the appropriate supported server-side integration.
+
+## Order confirmation
+
+After successful validation:
+
+- Save the order.
+- Generate or confirm its unique identifier.
+- Display the order summary.
+- Make the order available to the remaining modules.
+
+Avoid unnecessary confirmation screens.
+
+Provide meaningful success and failure feedback.
+
+---
+
+# SECTION 8 — SCREEN 3: FINANCIAL INTELLIGENCE
+
+This is a major functional component of NiryatFlow AI.
+
+Build a proper export financial calculator.
+
+## 8.1 Input information
+
+Retrieve relevant order details automatically.
+
+Allow the user to provide or adjust:
+
+- Order value.
+- Order currency.
+- Exchange rate.
+- Payment percentage.
+- Payment fees.
+- Product or procurement costs.
+- Logistics costs.
+- Packaging costs.
+- Other applicable expenses.
+- Additional financial assumptions.
+
+Do not ask users to re-enter information already available in the order.
+
+## 8.2 Financial calculations
+
+Implement calculations using a dedicated TypeScript financial calculation service.
+
+At minimum:
+
+**Gross order value**
+
+Quantity × Unit price.
+
+**Advance payment**
+
+Gross order value × Advance percentage / 100.
+
+**Outstanding amount**
+
+Gross order value − Advance payment.
+
+**Currency conversion**
+
+Foreign currency amount × explicitly supplied exchange rate.
+
+**Net revenue**
+
+Gross revenue minus applicable deductions.
+
+**Estimated profit**
+
+Net revenue minus recorded costs.
+
+**Profit margin**
+
+Estimated profit / Net revenue × 100.
+
+**Payment fee**
+
+Use the actual applicable fee rate or fee supplied by the user, rather than inventing a universal PayPal fee.
+
+Where appropriate, support both percentage-based and fixed payment charges.
+
+Clearly identify whether a figure is estimated or verified.
+
+## 8.3 Financial interface
+
+Create a professional financial workspace displaying:
+
+- Original order value.
+- Converted value.
+- Exchange-rate assumption.
+- Advance payment.
+- Outstanding balance.
+- Payment charges.
+- Additional costs.
+- Estimated net revenue.
+- Estimated profit.
+- Profit margin.
+
+Add a breakdown of how the results were calculated.
+
+Whenever inputs change, dependent values should update immediately.
+
+Use appropriate currency formatting and numerical precision.
+
+Handle:
+
+- Zero values.
+- Negative values where permitted.
+- Missing exchange rates.
+- Invalid percentages.
+- Division by zero.
+- Unsupported currencies.
+- Rounding differences.
+
+Never allow an AI response to overwrite the deterministic calculation engine.
+
+## 8.4 Financial explanation using AI
+
+Gemini can explain:
+
+- Why profitability is low.
+- Which costs affect the margin.
+- How payment fees affect net revenue.
+- How different exchange-rate assumptions affect the result.
+- What financial inputs remain missing.
+
+All explanations must be grounded in the actual calculation output.
+
+Do not fabricate market exchange rates or financial advice.
+
+---
+
+# SECTION 9 — SCREEN 4: EXPORT DOCUMENT CENTRE
+
+Develop a complete document-readiness workspace.
+
+## 9.1 Document management
+
+Associate documents with the appropriate export order.
+
+Support:
+
+- Uploading supported documents.
+- Viewing document names.
+- Recording document types.
+- Upload timestamps.
+- Document status.
+- Document associations.
+- Removing or replacing documents according to permissions.
+
+## 9.2 Document checklist
+
+Provide configurable document categories, such as:
+
+- Commercial Invoice.
+- Packing List.
+- Shipping Bill.
+- Bill of Lading or Air Waybill.
+- Certificate of Origin.
+- Insurance Certificate, where applicable.
+- Other order-specific supporting documents.
+
+Do not represent this list as universally mandatory.
+
+Actual requirements depend on the product, destination, transaction and applicable regulations.
+
+Allow requirements to be marked as:
+
+- Required.
+- Optional.
+- Not applicable.
+
+## 9.3 Document status
+
+Each document must have an explicit status:
+
+- Missing.
+- Uploaded.
+- Under Review.
+- Verified.
+- Rejected.
+- Re-upload Required.
+
+## 9.4 Readiness calculation
+
+Calculate documentation readiness from the actual checklist.
+
+For example:
+
+Verified required documents / Total applicable required documents × 100.
+
+Exclude optional and not-applicable documents from the denominator.
+
+Display missing items and outstanding actions.
+
+Do not treat upload completion as verification.
+
+---
+
+# SECTION 10 — SCREEN 5: PAYPAL PAYMENTS
+
+This is a mandatory real integration, not a mockup.
+
+Implement actual PayPal Sandbox payment processing.
+
+## 10.1 Integration architecture
+
+Use:
+
+- PayPal Sandbox developer credentials.
+- PayPal REST APIs.
+- PayPal JavaScript SDK or the appropriate supported client integration.
+- Secure backend endpoints.
+- Environment variables for credentials.
+
+Keep all secret credentials on the server.
+
+Never put the PayPal secret key in frontend code, browser storage or publicly accessible configuration.
+
+## 10.2 Backend endpoints
+
+Implement the appropriate endpoints for:
+
+- Creating a PayPal order.
+- Capturing an approved order.
+- Retrieving payment status.
+- Handling errors.
+- Reconciling transaction records.
+
+Suggested API structure:
+
+POST /api/paypal/create-order
+
+POST /api/paypal/capture-order
+
+GET /api/paypal/order/:id
+
+Adapt these routes to the existing project architecture.
+
+Do not create redundant endpoints if equivalent working endpoints already exist.
+
+## 10.3 Payment creation
+
+When the user initiates payment:
+
+- Retrieve the relevant export order.
+- Retrieve the actual payable amount.
+- Validate the currency.
+- Validate the amount.
+- Check that the order is eligible for payment.
+- Create the Sandbox order through the backend.
+- Return the required approval information.
+
+Do not accept arbitrary amounts supplied by the browser without server-side validation.
+
+## 10.4 Payment approval and capture
+
+Implement the actual PayPal approval and capture process.
+
+After approval:
+
+- Verify the PayPal order reference.
+- Capture the order through the backend.
+- Validate the capture response.
+- Store the transaction ID.
+- Store the actual amount and currency.
+- Record the capture status.
+- Associate the transaction with the export order.
+
+## 10.5 Payment reliability
+
+Implement:
+
+- Duplicate-submission prevention.
+- Idempotency where supported.
+- Capture verification.
+- Transaction error handling.
+- Cancellation handling.
+- Retry handling.
+- Payment reconciliation.
+- Clear transaction history.
+
+Do not mark an order paid based only on a browser callback.
+
+The backend must establish the verified payment result.
+
+## 10.6 Payment interface
+
+Display:
+
+- Order reference.
+- Buyer information.
+- Payable amount.
+- Currency.
+- Payment status.
+- PayPal transaction reference.
+- Transaction date.
+- Error details where relevant.
+
+Provide a professional payment experience.
+
+Clearly label Sandbox mode.
+
+Use test credentials and test buyer accounts for validation.
+
+Do not claim real-money production payments are supported.
+
+---
+
+# SECTION 11 — SCREEN 6: EXPORT ORDER DIGITAL TWIN
+
+This is the central connecting experience of NiryatFlow AI.
+
+Do not treat it as an ordinary order-details page.
+
+Create a unified digital representation of each export order.
+
+## 11.1 Digital Twin overview
+
+Display:
+
+- Unique order identifier.
+- Buyer details.
+- Product details.
+- Order value.
+- Currency.
+- Current lifecycle stage.
+- Overall progress.
+- Last updated timestamp.
+
+## 11.2 Connected lifecycle
+
+Create a visually meaningful lifecycle:
+
+1. Order Created.
+2. Information Extracted.
+3. Order Validated.
+4. Financial Assessment.
+5. Document Readiness.
+6. Payment Initiated.
+7. Payment Captured.
+8. Performance Tracking.
+
+Each stage must derive its status from actual application records.
+
+## 11.3 Dynamic updates
+
+When a user:
+
+- Creates an order.
+- Confirms extracted information.
+- Updates a financial assumption.
+- Uploads a document.
+- Verifies a document.
+- Initiates a payment.
+- Captures a payment.
+
+The Digital Twin must reflect the corresponding changes.
+
+Use a central order state model.
+
+Avoid maintaining separate conflicting copies of the same information in different modules.
+
+## 11.4 Outstanding actions
+
+Identify the next meaningful actions for each order.
+
+Examples:
+
+- Complete missing order information.
+- Confirm extracted fields.
+- Provide exchange-rate assumptions.
+- Upload missing documentation.
+- Review pending payment.
+- Reconcile an incomplete transaction.
+
+Actions should navigate directly to the relevant module and preserve the selected order context.
+
+## 11.5 Digital Twin visualisation
+
+Create a sophisticated connected workflow visualisation.
+
+Use meaningful status transitions and interactive timeline elements.
+
+The interface should help the user understand the complete export-order position at a glance.
+
+---
+
+# SECTION 12 — MODULE 5: EXPORT PERFORMANCE INTELLIGENCE
+
+Develop a separate performance-analysis experience that uses the underlying export records.
+
+## 12.1 Performance indicators
+
+Calculate:
+
+- Total orders.
+- Active orders.
+- Completed orders.
+- Cancelled orders.
+- Total order value.
+- Captured payment value.
+- Outstanding payment value.
+- Estimated profit.
+- Average order value.
+- Average profit margin.
+- Payment completion rate.
+- Document readiness rate.
+
+## 12.2 Analysis
+
+Provide:
+
+- Order-volume trends.
+- Financial performance trends.
+- Payment performance.
+- Order-status distribution.
+- Profitability comparisons.
+- Documentation completion analysis.
+
+Use meaningful time periods where data supports them.
+
+## 12.3 AI-assisted business insights
+
+Gemini may interpret the calculated metrics.
+
+Examples:
+
+- Identify orders with incomplete documentation.
+- Explain changes in profit margin.
+- Highlight delayed payment collection.
+- Identify recurring operational bottlenecks.
+- Summarise recent export activity.
+
+AI-generated observations must reference actual underlying data.
+
+Clearly distinguish an observation from a verified business fact.
+
+Do not manufacture trends when the dataset is insufficient.
+
+---
+
+# SECTION 13 — APPLICATION ARCHITECTURE
+
+Build a maintainable full-stack application.
+
+Preserve the existing architecture if it is already functional.
+
+## 13.1 Frontend
+
+Use the existing React and TypeScript foundation.
+
+Use Tailwind CSS where suitable.
+
+Organise the application into reusable components and feature modules.
+
+Suggested structure:
+
+src/
+  app/
+    routes/
+    providers/
+    layout/
+  components/
+    common/
+    navigation/
+    forms/
+    charts/
+    feedback/
+  features/
+    dashboard/
+    export-orders/
+    financial-intelligence/
+    document-centre/
+    payments/
+    digital-twin/
+    performance/
+  services/
+    api/
+    ai/
+    calculations/
+    payments/
+  hooks/
+  types/
+  utils/
+  styles/
+
+This is a suggested structure, not permission to destroy an existing working structure.
+
+## 13.2 Backend
+
+Implement secure backend functionality for:
+
+- AI requests.
+- Order persistence.
+- Document metadata.
+- Payment creation.
+- Payment capture.
+- Transaction verification.
+- Performance data retrieval.
+
+Use the backend architecture compatible with the current hosting environment.
+
+If Cloudflare Workers or Vercel Functions are used, follow their supported runtime and deployment requirements.
+
+## 13.3 Data persistence
+
+Inspect the existing persistence system first.
+
+Preserve existing working storage and database integrations.
+
+If persistent storage has not yet been implemented, choose an appropriate free-tier solution after evaluating the application requirements.
+
+Do not silently assume that browser localStorage is sufficient for a multi-user application.
+
+If local storage is used for an explicitly identified local demonstration mode:
+
+- Keep it separate from payment verification.
+- Document its limitations.
+- Prevent false claims of secure multi-user persistence.
+- Provide an appropriate migration path to persistent backend storage.
+
+## 13.4 Data consistency
+
+Maintain a consistent relationship between:
+
+- Export orders.
+- Exporter information.
+- Buyer information.
+- Financial calculations.
+- Documents.
+- Payments.
+- Performance records.
+
+Use stable identifiers and appropriate relational associations.
+
+Avoid duplicated or inconsistent order records.
+
+## 13.5 Type safety
+
+Create explicit TypeScript interfaces for:
+
+- ExportOrder.
+- Buyer.
+- Exporter.
+- Product.
+- FinancialAssessment.
+- DocumentRecord.
+- PaymentRecord.
+- DigitalTwinState.
+- PerformanceMetrics.
+- AIExtractionResult.
+
+Use appropriate enums or union types for lifecycle and payment statuses.
+
+Validate external API responses.
+
+Do not use unvalidated external data as trusted application state.
+
+---
+
+# SECTION 14 — AI ARCHITECTURE AND GEMINI INTEGRATION
+
+Gemini is an intelligence layer, not the authority for the application's financial or payment records.
+
+## 14.1 AI responsibilities
+
+Use Gemini for:
+
+- Export-order data extraction.
+- Document interpretation.
+- Missing-field identification.
+- Natural-language explanations.
+- Financial result interpretation.
+- Export activity summaries.
+- Operational insights.
+
+## 14.2 Structured outputs
+
+Where possible, request structured JSON responses.
+
+Validate responses against explicit schemas.
+
+Handle:
+
+- Invalid JSON.
+- Missing fields.
+- Incorrect field types.
+- Hallucinated information.
+- API failures.
+- Quota exhaustion.
+- Unsupported files.
+
+Do not save an unvalidated AI response as a confirmed export order.
+
+## 14.3 AI transparency
+
+Clearly identify AI-generated suggestions.
+
+Distinguish:
+
+- Extracted data.
+- User-confirmed data.
+- Deterministically calculated data.
+- AI-generated explanations.
+
+## 14.4 Free-tier usage
+
+Use the available Gemini free-tier model and supported API configuration.
+
+Implement graceful handling of rate limits and quota exhaustion.
+
+Do not introduce paid model calls automatically.
+
+Do not expose the Gemini API key publicly.
+
+---
+
+# SECTION 15 — PREMIUM UI/UX DESIGN DIRECTION
+
+The application must look like a professionally designed fintech product.
+
+It must not resemble a generic AI-generated SaaS dashboard.
+
+Design the entire product as one coherent interface.
+
+## 15.1 Brand identity
+
+Product: NiryatFlow AI.
+
+Visual character:
+
+- Professional.
+- International.
+- Financially trustworthy.
+- Technically sophisticated.
+- Modern.
+- Clear.
+- Efficient.
+
+Create a custom visual identity inspired by connected trade routes and financial movement.
+
+Do not copy another brand's logo.
+
+## 15.2 Colour system
+
+Develop a complete colour-token system.
+
+Suggested direction:
+
+Primary: Deep navy.
+
+Secondary: Professional blue.
+
+Background: Warm white or light neutral.
+
+Surface: White or carefully differentiated neutral surfaces.
+
+Success: Restrained emerald or teal.
+
+Warning: Amber.
+
+Error: Red.
+
+Text: Strong dark neutral.
+
+Muted text: Readable secondary neutral.
+
+Use gradients selectively.
+
+Avoid excessive purple-blue AI gradients.
+
+## 15.3 Typography
+
+Use a professional typography system.
+
+Create clear differences between:
+
+- Page titles.
+- Section headings.
+- Financial figures.
+- Table headings.
+- Body text.
+- Labels.
+- Supporting information.
+
+Financial numbers must be easy to scan.
+
+Use consistent numerical alignment where appropriate.
+
+## 15.4 Layout
+
+Desktop:
+
+- Persistent sidebar.
+- Application header.
+- Main workspace.
+- Contextual action area.
+- Appropriate content widths.
+- Structured information hierarchy.
+
+Mobile:
+
+- Responsive navigation.
+- Touch-friendly interactions.
+- Adaptable data tables.
+- Properly reorganised financial information.
+- No horizontal overflow.
+- Mobile-compatible forms.
+
+Tablet:
+
+- Appropriate intermediate layouts.
+- Adaptable navigation.
+- Balanced content density.
+
+## 15.5 Avoid generic design patterns
+
+Do not create:
+
+- A screen made entirely of identical cards.
+- Random gradient backgrounds.
+- Unnecessary floating decorations.
+- Excessive glass effects.
+- Inconsistent icon styles.
+- Excessively rounded components.
+- Random charts.
+- Decorative elements that have no purpose.
+- Unnecessary popups after every click.
+
+Use tables, timelines, structured panels, financial breakdowns and contextual information layouts where they make more sense.
+
+The result should have a distinctive product identity.
+
+---
+
+# SECTION 16 — CINEMATIC APPLICATION LAUNCH EXPERIENCE
+
+The actual application URL must provide a memorable opening experience.
+
+This is a major product-design requirement.
+
+Do not implement this as an external advertisement or video.
+
+Implement the animation within the application.
+
+## 16.1 Brand reveal
+
+When a user first opens the application:
+
+- Introduce the NiryatFlow identity.
+- Use a custom animated brand mark.
+- Reveal the product name.
+- Introduce the international trade visual language.
+
+## 16.2 Global trade-route animation
+
+Create a custom animated visualisation representing:
+
+- International trade routes.
+- Connected locations.
+- Movement of information.
+- Transaction flow.
+
+Use animated paths, subtle particles and controlled visual depth.
+
+The animation should communicate the actual NiryatFlow concept.
+
+## 16.3 Transition into the application
+
+Transition from the brand reveal into the dashboard.
+
+Coordinate the appearance of:
+
+- Sidebar.
+- Header.
+- Dashboard content.
+- Financial overview.
+- Recent activity.
+
+Do not simply display a splash screen and abruptly replace it with the dashboard.
+
+## 16.4 Motion quality
+
+Use:
+
+- Smooth easing.
+- Layered transitions.
+- Controlled scaling.
+- Opacity transitions.
+- Subtle parallax where appropriate.
+- Meaningful animated indicators.
+
+Keep the experience fast.
+
+Allow users to access the application immediately.
+
+Do not replay a long launch sequence during every internal navigation.
+
+Use session-aware behaviour and respect reduced-motion preferences.
+
+---
+
+# SECTION 17 — ADVANCED INTERACTION DESIGN
+
+Implement a coherent motion and interaction system throughout the application.
+
+## Navigation
+
+- Animated active navigation indicator.
+- Smooth sidebar transitions.
+- Context-aware navigation.
+- Clear hover states.
+- Keyboard accessibility.
+
+## Buttons
+
+- Proper press feedback.
+- Loading states.
+- Disabled states.
+- Success and failure feedback.
+- Duplicate-submission prevention.
+
+## Financial data
+
+- Animated value changes.
+- Smooth chart rendering.
+- Meaningful financial updates.
+- Clear calculation feedback.
+
+## Order workflow
+
+- Animated lifecycle progress.
+- Clear stage transitions.
+- Interactive timeline.
+- Contextual outstanding-action indicators.
+
+## Documents
+
+- Upload progress.
+- Verification-state transitions.
+- Readiness progress animation.
+- Clear upload errors.
+
+## Payments
+
+- Payment initiation feedback.
+- Approval-state feedback.
+- Capture progress.
+- Verified success state.
+- Cancellation and failure states.
+
+## General rules
+
+Do not make animations interfere with important actions.
+
+Do not delay financial or payment interactions for decorative effects.
+
+Use animations to communicate state changes, not merely to attract attention.
+
+---
+
+# SECTION 18 — PROFESSIONAL INTERACTION AND NAVIGATION RULES
+
+The user experience must be direct and predictable.
+
+When a user clicks an application navigation item, open its destination directly.
+
+When a user clicks an action, execute that action or explain why it cannot proceed.
+
+Do not introduce unnecessary intermediate option-selection screens.
+
+Do not show redundant confirmation popups.
+
+Do not create dead buttons.
+
+Do not create fake dropdowns.
+
+Do not display controls that have no implemented functionality.
+
+Use contextual controls close to the information they affect.
+
+Use dialogs only when a consequential action genuinely requires confirmation.
+
+Use drawers or inline detail panels when they improve workflow efficiency.
+
+Preserve form state where appropriate.
+
+Maintain the selected export order across connected modules.
+
+Provide useful empty states for new users.
+
+Every form must include:
+
+- Appropriate labels.
+- Input validation.
+- Error messages.
+- Loading feedback.
+- Successful completion feedback.
+
+Use accessible keyboard navigation and focus indicators.
+
+---
+
+# SECTION 19 — DATABASE AND DATA MODEL
+
+Create a clear and consistent data model.
+
+The following are logical entities. Adapt them to the existing database architecture.
+
+## ExportOrder
+
+- id
+- orderNumber
+- exporterId
+- buyerId
+- productDetails
+- quantity
+- unit
+- unitPrice
+- orderValue
+- currency
+- incoterm
+- destination
+- paymentTerms
+- advancePercentage
+- orderStatus
+- createdAt
+- updatedAt
+
+## Buyer
+
+- id
+- name
+- country
+- contactDetails
+- address
+
+## Exporter
+
+- id
+- businessName
+- contactDetails
+- address
+- country
+
+## FinancialAssessment
+
+- id
+- exportOrderId
+- exchangeRate
+- convertedValue
+- advanceAmount
+- outstandingAmount
+- paymentFee
+- additionalCosts
+- estimatedNetRevenue
+- estimatedProfit
+- profitMargin
+- calculationAssumptions
+- updatedAt
+
+## DocumentRecord
+
+- id
+- exportOrderId
+- documentType
+- fileReference
+- uploadStatus
+- verificationStatus
+- uploadedAt
+- verifiedAt
+
+## PaymentRecord
+
+- id
+- exportOrderId
+- paypalOrderId
+- paypalCaptureId
+- amount
+- currency
+- paymentStatus
+- transactionTimestamp
+- verificationDetails
+
+## ActivityRecord
+
+- id
+- exportOrderId
+- eventType
+- description
+- timestamp
+- relevantMetadata
+
+## DigitalTwinState
+
+The Digital Twin should preferably derive its state from the authoritative order, financial, document and payment records rather than storing conflicting duplicate values.
+
+All relationships must be consistent.
+
+Use database constraints and validation wherever supported.
+
+---
+
+# SECTION 20 — SECURITY AND ERROR HANDLING
+
+Implement appropriate security practices.
+
+- Keep secrets on the server.
+- Validate all external inputs.
+- Validate uploaded files.
+- Restrict file types and sizes.
+- Avoid exposing sensitive information.
+- Verify payment responses server-side.
+- Prevent duplicate payment captures.
+- Handle unauthorised operations.
+- Protect user-specific data where authentication is implemented.
+- Avoid logging secrets or sensitive payment details.
+- Handle API failures.
+- Handle unavailable database services.
+- Handle AI quota exhaustion.
+- Handle invalid API responses.
+- Handle interrupted transactions.
+
+Do not pretend that security measures are complete without testing them.
+
+Do not store full card details.
+
+Do not claim compliance certifications that have not been obtained.
+
+---
+
+# SECTION 21 — TESTING AND QUALITY ASSURANCE
+
+Testing is mandatory.
+
+Do not declare the project finished merely because the homepage renders.
+
+## 21.1 Application tests
+
+Verify:
+
+- Application starts successfully.
+- Application URL loads.
+- Launch animation works.
+- Navigation works.
+- All six screens open.
+- Responsive layouts function.
+- No broken routes.
+- No console errors.
+
+## 21.2 Order workflow tests
+
+Verify:
+
+- Manual order creation.
+- Input validation.
+- Unique order identifiers.
+- Data persistence.
+- Order retrieval.
+- Order editing.
+- AI extraction.
+- Extraction review.
+- Missing-field handling.
+
+## 21.3 Financial tests
+
+Test known inputs and expected results.
+
+Verify:
+
+- Gross order value.
+- Currency conversion.
+- Advance payment.
+- Outstanding balance.
+- Payment fees.
+- Additional costs.
+- Net revenue.
+- Estimated profit.
+- Profit margin.
+- Invalid inputs.
+- Rounding behaviour.
+
+Create unit tests for the calculation engine.
+
+## 21.4 Documentation tests
+
+Verify:
+
+- Document uploads.
+- File validation.
+- Checklist creation.
+- Status changes.
+- Required versus optional documents.
+- Readiness calculations.
+- Verification restrictions.
+
+## 21.5 PayPal Sandbox tests
+
+Test the complete actual Sandbox process:
+
+1. Backend creates a Sandbox order.
+2. PayPal approval is available.
+3. Test buyer approves payment.
+4. Backend captures payment.
+5. Capture response is validated.
+6. Transaction record is stored.
+7. Correct export order is updated.
+8. Duplicate capture is prevented.
+9. Cancellation is handled.
+10. Failed payment is handled.
+11. Payment reconciliation works.
+
+Do not substitute a mocked success response for this test.
+
+## 21.6 Digital Twin tests
+
+Verify that the Digital Twin reflects changes from:
+
+- Order creation.
+- AI confirmation.
+- Financial updates.
+- Document uploads.
+- Document verification.
+- Payment initiation.
+- Payment capture.
+
+## 21.7 Performance tests
+
+Verify:
+
+- Metrics are calculated from real records.
+- Empty states work.
+- Charts handle insufficient data.
+- Filtering works.
+- Values update after relevant changes.
+
+## 21.8 Code quality
+
+Run:
+
+- TypeScript checks.
+- Production build.
+- Relevant unit tests.
+- Integration tests.
+- Lint checks where configured.
+- Browser testing.
+
+Fix implementation errors instead of hiding them.
+
+---
+
+# SECTION 22 — DEPLOYMENT AND ENVIRONMENT CONFIGURATION
+
+Prepare the application for deployment using the selected free-tier infrastructure.
+
+Possible hosting targets:
+
+- Cloudflare.
+- Vercel.
+
+Use the one compatible with the actual backend architecture.
+
+Prepare:
+
+- Environment variable documentation.
+- Development configuration.
+- Sandbox configuration.
+- Production-build configuration.
+- Deployment instructions.
+- GitHub repository structure.
+
+Do not commit API keys.
+
+Do not hardcode credentials.
+
+Do not introduce a paid domain or service.
+
+Document any external account setup that must be completed by the user.
+
+Clearly distinguish:
+
+- Local development.
+- Deployed demonstration.
+- PayPal Sandbox.
+- Production deployment requirements.
+
+Do not claim production payment readiness.
+
+---
+
+# SECTION 23 — IMPLEMENTATION PROCESS
+
+You must implement the project systematically.
+
+Do not attempt to generate the entire codebase in one unverified operation.
+
+Do not stop after providing a proposed architecture.
+
+Work through the following development phases.
+
+## PHASE 1 — EXISTING PROJECT AUDIT
+
+Inspect the complete project.
+
+Report:
+
+- Existing architecture.
+- Current dependencies.
+- Existing screens.
+- Existing business logic.
+- Existing database or persistence.
+- Existing AI integrations.
+- Existing payment integrations.
+- Missing implementations.
+- Potential conflicts.
+
+Do not make destructive modifications.
+
+Establish a baseline.
+
+## PHASE 2 — SYSTEM ARCHITECTURE
+
+Define:
+
+- Application routing.
+- Frontend architecture.
+- Backend architecture.
+- Data model.
+- API contracts.
+- AI integration.
+- Payment integration.
+- State management.
+- Security boundaries.
+
+Ensure the architecture supports the entire export lifecycle.
+
+## PHASE 3 — DESIGN SYSTEM
+
+Implement:
+
+- Brand identity.
+- Typography.
+- Colour tokens.
+- Spacing system.
+- Responsive layouts.
+- Navigation.
+- Reusable components.
+- Interaction patterns.
+
+## PHASE 4 — APPLICATION LAUNCH EXPERIENCE
+
+Implement the custom cinematic brand reveal.
+
+Test the transition into the actual dashboard.
+
+## PHASE 5 — APPLICATION SHELL AND DASHBOARD
+
+Implement the navigation and dashboard using real application data.
+
+## PHASE 6 — EXPORT ORDER INTELLIGENCE
+
+Implement manual entry, AI extraction, review, validation and order persistence.
+
+## PHASE 7 — FINANCIAL INTELLIGENCE
+
+Implement the deterministic calculation engine and financial workspace.
+
+Test the calculation engine independently.
+
+## PHASE 8 — EXPORT DOCUMENT INTELLIGENCE
+
+Implement document upload, checklist, verification states and readiness calculations.
+
+## PHASE 9 — PAYPAL SANDBOX
+
+Implement actual order creation, approval, capture and backend verification.
+
+Test the complete transaction lifecycle.
+
+## PHASE 10 — EXPORT ORDER DIGITAL TWIN
+
+Connect the five modules through authoritative order data.
+
+Implement dynamic lifecycle tracking.
+
+## PHASE 11 — EXPORT PERFORMANCE INTELLIGENCE
+
+Implement calculated metrics, visualisations and AI-assisted explanations.
+
+## PHASE 12 — MOTION AND INTERACTION REFINEMENT
+
+Implement the final motion system and improve usability throughout the application.
+
+## PHASE 13 — INTEGRATION TESTING
+
+Test the complete workflow from order creation to performance tracking.
+
+## PHASE 14 — DEPLOYMENT PREPARATION
+
+Prepare the project for free-tier deployment.
+
+Document all required environment variables and external configuration.
+
+---
+
+# SECTION 24 — CRITICAL DEVELOPMENT RULES
+
+Follow these rules throughout the implementation.
+
+1. Never replace real functionality with decorative UI.
+2. Never change the original business workflow.
+3. Never generate fake payment success.
+4. Never use AI to calculate authoritative financial values.
+5. Never expose private API credentials.
+6. Never invent business metrics.
+7. Never claim a document is verified without verification.
+8. Never remove working functionality to simplify implementation.
+9. Never create buttons without functional actions.
+10. Never create unnecessary navigation steps.
+11. Never introduce paid dependencies.
+12. Never silently introduce additional product requirements.
+13. Never claim an integration works without testing it.
+14. Never ignore TypeScript or build errors.
+15. Never treat a successful page render as proof of a complete application.
+16. Never allow visual animations to interfere with critical financial or payment actions.
+17. Never create conflicting copies of authoritative order information.
+18. Never assume that an external service is available without checking its configuration and response.
+
+If an implementation encounters an error:
+
+- Identify the root cause.
+- Explain the issue.
+- Correct the implementation.
+- Re-run the relevant checks.
+- Verify that the correction did not break existing functionality.
+
+Do not repeatedly rewrite working code to solve unrelated problems.
+
+---
+
+# SECTION 25 — FINAL ACCEPTANCE CRITERIA
+
+The project is complete only when the following conditions are met.
+
+### Product functionality
+
+- [ ] All five core modules are implemented.
+- [ ] All six application screens are implemented.
+- [ ] The complete export-order workflow works.
+- [ ] Manual order creation works.
+- [ ] AI extraction works.
+- [ ] Extracted data can be reviewed and confirmed.
+- [ ] Financial calculations are deterministic.
+- [ ] Document readiness is calculated correctly.
+- [ ] PayPal Sandbox integration is functional.
+- [ ] Payment capture is verified server-side.
+- [ ] Export Order Digital Twin reflects actual records.
+- [ ] Performance intelligence uses actual data.
+
+### UI/UX
+
+- [ ] Original NiryatFlow visual identity is established.
+- [ ] Application launch animation works.
+- [ ] Navigation is consistent.
+- [ ] The application is responsive.
+- [ ] Interactive states are implemented.
+- [ ] No dead buttons exist.
+- [ ] No unnecessary option-selection screens exist.
+- [ ] Empty, loading, error and success states are handled.
+- [ ] Motion respects accessibility and usability.
+
+### Engineering
+
+- [ ] TypeScript checks pass.
+- [ ] Production build succeeds.
+- [ ] Relevant tests pass.
+- [ ] API integrations are tested.
+- [ ] Data relationships are consistent.
+- [ ] Payment verification is secure.
+- [ ] Credentials are protected.
+- [ ] No unnecessary paid services are introduced.
+- [ ] Deployment instructions are documented.
+
+### Final demonstration
+
+Demonstrate the following complete user journey:
+
+1. Open the deployed NiryatFlow application URL.
+2. Experience the cinematic brand reveal.
+3. Enter the application dashboard.
+4. Create a new export order.
+5. Extract or enter the order information.
+6. Confirm the order details.
+7. Open Financial Intelligence.
+8. Calculate the financial viability.
+9. Open the Document Centre.
+10. Update the document checklist.
+11. Open PayPal Payments.
+12. Create a real PayPal Sandbox order.
+13. Approve the transaction using a Sandbox buyer.
+14. Capture and verify the payment.
+15. Open the Export Order Digital Twin.
+16. Verify that the order lifecycle reflects the latest information.
+17. Open Export Performance Intelligence.
+18. Verify that performance metrics reflect the actual records.
+
+The final demonstration must use genuine working application functionality, not a pre-recorded animation or hardcoded success screen.
+
+---
+
+# FINAL PRODUCT VISION
+
+NiryatFlow AI is not simply an export dashboard.
+
+It is an interconnected export operations and financial intelligence platform.
+
+Its defining feature is the ability to transform a single export order into a continuously updated digital representation that connects order intelligence, financial calculations, documentation, payment processing and performance tracking.
+
+The application must be visually distinctive, technically maintainable, functionally reliable and genuinely useful to Indian MSME exporters.
+
+**Your final responsibility is to build the complete product, not just its interface.**
+
+Start by auditing the existing project.
+
+Preserve all existing working functionality.
+
+Then implement the complete architecture and workflow described above.
+
+Continue through the implementation phases until the application meets the final acceptance criteria.
+
+If a requirement cannot be completed because of an external service, missing credentials or platform limitation, identify the precise blocker and implement all independent functionality that can be completed without it.
+
+Never claim completion without evidence from actual testing.
+
+**BUILD NIRYATFLOW AI AS A COMPLETE SOFTWARE PRODUCT.**

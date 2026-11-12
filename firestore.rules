@@ -1,0 +1,190 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isComplianceReviewer() {
+      return isSignedIn() && (
+        request.auth.token.reviewer == true ||
+        request.auth.token.role == 'COMPLIANCE_REVIEWER'
+      );
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // 1. Export Orders Collection
+    match /export_orders/{orderId} {
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if isSignedIn()
+        && incoming().keys().hasAll([
+          'userId', 'orderNumber', 'exporterName', 'exporterContact', 'exporterAddress',
+          'buyerName', 'buyerCountry', 'buyerContact', 'buyerAddress',
+          'productName', 'productDescription', 'quantity', 'unit', 'unitPrice',
+          'orderValue', 'currency', 'incoterm', 'destinationPort',
+          'orderDate', 'expectedShipmentDate', 'paymentTerms', 'advancePercentage',
+          'orderStatus', 'extractionSource', 'createdAt', 'updatedAt'
+        ])
+        && incoming().keys().hasOnly([
+          'id', 'userId', 'orderNumber', 'exporterName', 'exporterContact', 'exporterAddress',
+          'buyerName', 'buyerCountry', 'buyerContact', 'buyerAddress',
+          'productName', 'productDescription', 'quantity', 'unit', 'unitPrice',
+          'orderValue', 'currency', 'incoterm', 'destinationPort',
+          'orderDate', 'expectedShipmentDate', 'paymentTerms', 'advancePercentage',
+          'orderStatus', 'extractionSource', 'createdAt', 'updatedAt'
+        ])
+        && incoming().userId == request.auth.uid
+        && incoming().orderNumber is string && incoming().orderNumber.size() >= 1 && incoming().orderNumber.size() <= 80
+        && incoming().exporterName is string && incoming().exporterName.size() <= 200
+        && incoming().buyerName is string && incoming().buyerName.size() >= 1 && incoming().buyerName.size() <= 200
+        && incoming().buyerCountry is string && incoming().buyerCountry.size() >= 1 && incoming().buyerCountry.size() <= 120
+        && incoming().productName is string && incoming().productName.size() >= 1 && incoming().productName.size() <= 200
+        && incoming().quantity is number && incoming().quantity > 0
+        && incoming().unitPrice is number && incoming().unitPrice >= 0
+        && incoming().orderValue is number && incoming().orderValue >= 0
+        && incoming().advancePercentage is number && incoming().advancePercentage >= 0 && incoming().advancePercentage <= 100
+        && incoming().orderStatus in [
+          'CREATED', 'VALIDATED', 'FINANCIALLY_ASSESSED', 'DOCS_READY',
+          'PAYMENT_INITIATED', 'COMPLETED', 'CANCELLED',
+          'SHIPMENT_IN_TRANSIT', 'AWAITING_PAYMENT', 'DOCUMENTATION_PENDING', 'ORDER_PROCESSING'
+        ]
+        && incoming().extractionSource in ['MANUAL', 'AI_EXTRACTED_CONFIRMED']
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && existing().userId == request.auth.uid
+        && incoming().userId == existing().userId
+        && incoming().createdAt == existing().createdAt
+        && incoming().quantity is number && incoming().quantity > 0
+        && incoming().unitPrice is number && incoming().unitPrice >= 0
+        && incoming().orderValue is number && incoming().orderValue >= 0
+        && incoming().advancePercentage is number && incoming().advancePercentage >= 0 && incoming().advancePercentage <= 100
+        && incoming().orderStatus in [
+          'CREATED', 'VALIDATED', 'FINANCIALLY_ASSESSED', 'DOCS_READY',
+          'PAYMENT_INITIATED', 'COMPLETED', 'CANCELLED',
+          'SHIPMENT_IN_TRANSIT', 'AWAITING_PAYMENT', 'DOCUMENTATION_PENDING', 'ORDER_PROCESSING'
+        ]
+        && incoming().updatedAt == request.time;
+
+      allow delete: if isSignedIn() && existing().userId == request.auth.uid;
+    }
+
+    // 2. Financial Assessments Collection
+    match /financial_assessments/{assessmentId} {
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if isSignedIn()
+        && incoming().keys().hasAll([
+          'userId', 'exportOrderId', 'grossOrderValue', 'currency', 'exchangeRate',
+          'convertedValueInr', 'advancePercentage', 'advanceAmount', 'outstandingAmount',
+          'paymentFeePercentage', 'paymentFixedFee', 'paymentFeeInr',
+          'procurementCostInr', 'logisticsCostInr', 'packagingCostInr', 'otherCostsInr',
+          'estimatedNetRevenueInr', 'estimatedProfitInr', 'profitMarginPercent',
+          'assumptionsNote', 'createdAt', 'updatedAt'
+        ])
+        && incoming().userId == request.auth.uid
+        && incoming().exportOrderId is string && incoming().exportOrderId.size() >= 1
+        && incoming().exchangeRate is number && incoming().exchangeRate > 0
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && existing().userId == request.auth.uid
+        && incoming().userId == existing().userId
+        && incoming().exportOrderId == existing().exportOrderId
+        && incoming().createdAt == existing().createdAt
+        && incoming().exchangeRate is number && incoming().exchangeRate > 0
+        && incoming().updatedAt == request.time;
+
+      allow delete: if isSignedIn() && existing().userId == request.auth.uid;
+    }
+
+    // 3. Document Records Collection (Hardened: Non-reviewer clients cannot self-certify/verify)
+    match /document_records/{docId} {
+      allow read: if isSignedIn() && (resource.data.userId == request.auth.uid || isComplianceReviewer());
+
+      allow create: if isSignedIn()
+        && incoming().userId == request.auth.uid
+        && incoming().exportOrderId is string && incoming().exportOrderId.size() >= 1
+        && incoming().documentType is string && incoming().documentType.size() >= 1 && incoming().documentType.size() <= 120
+        && incoming().requirementLevel in ['REQUIRED', 'OPTIONAL', 'NOT_APPLICABLE']
+        && (
+          incoming().status in ['MISSING', 'UPLOADED', 'PENDING_REVIEW', 'UNDER_REVIEW', 'REUPLOAD_REQUIRED'] ||
+          (isComplianceReviewer() && incoming().status in ['APPROVED', 'VERIFIED', 'REJECTED', 'OFFICIALLY_CERTIFIED'])
+        )
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && (existing().userId == request.auth.uid || isComplianceReviewer())
+        && incoming().userId == existing().userId
+        && incoming().exportOrderId == existing().exportOrderId
+        && incoming().createdAt == existing().createdAt
+        && incoming().requirementLevel in ['REQUIRED', 'OPTIONAL', 'NOT_APPLICABLE']
+        && (
+          incoming().status in ['MISSING', 'UPLOADED', 'PENDING_REVIEW', 'UNDER_REVIEW', 'REUPLOAD_REQUIRED'] ||
+          (isComplianceReviewer() && incoming().status in ['APPROVED', 'VERIFIED', 'REJECTED', 'OFFICIALLY_CERTIFIED'])
+        )
+        && incoming().updatedAt == request.time;
+
+      allow delete: if isSignedIn() && existing().userId == request.auth.uid;
+    }
+
+    // 4. Payment Records Collection (Hardened: Clients CANNOT self-write CAPTURED status; only Backend Admin SDK can)
+    match /payment_records/{paymentId} {
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if isSignedIn()
+        && incoming().userId == request.auth.uid
+        && incoming().exportOrderId is string && incoming().exportOrderId.size() >= 1
+        && incoming().amount is number && incoming().amount > 0
+        && incoming().paymentType in ['ADVANCE', 'BALANCE', 'FULL']
+        // Authoritative CAPTURED state is restricted to Firebase Admin SDK (Cloud Functions)
+        && incoming().paymentStatus in ['NOT_INITIATED', 'PENDING_APPROVAL', 'REQUIRES_RECONCILIATION']
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && existing().userId == request.auth.uid
+        && incoming().userId == existing().userId
+        && incoming().exportOrderId == existing().exportOrderId
+        && incoming().createdAt == existing().createdAt
+        && incoming().amount == existing().amount
+        && incoming().currency == existing().currency
+        // Clients cannot transition a payment to CAPTURED or APPROVED; only backend Admin SDK can
+        && incoming().paymentStatus in ['NOT_INITIATED', 'PENDING_APPROVAL', 'CANCELLED', 'REQUIRES_RECONCILIATION']
+        && incoming().updatedAt == request.time;
+
+      allow delete: if false;
+    }
+
+    // 5. Activity Records Collection
+    match /activity_records/{activityId} {
+      allow read: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if isSignedIn()
+        && incoming().userId == request.auth.uid
+        && incoming().title is string && incoming().title.size() >= 1 && incoming().title.size() <= 200
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && existing().userId == request.auth.uid
+        && incoming().userId == existing().userId
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time;
+
+      allow delete: if isSignedIn() && existing().userId == request.auth.uid;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/components/IntelligencePanels.tsx","./src/data/sampleWorkspaceSeeder.ts","./src/domain/financialEngine.ts","./src/services/aiIntelligenceService.ts","./src/services/demoPaymentService.ts","./src/services/reportingService.ts","./src/types/models.ts"],"version":"5.6.3"}

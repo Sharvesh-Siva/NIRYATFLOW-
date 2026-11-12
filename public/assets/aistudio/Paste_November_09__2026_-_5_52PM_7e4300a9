@@ -1,0 +1,1083 @@
+NIRYATFLOW AI
+
+MASTER BUILD PROMPT — PRODUCTION-GRADE COMMERCIAL APPLICATION + SAMPLE BUSINESS WORKSPACE
+
+1. PRODUCT VISION
+
+Build NiryatFlow AI as a real-world, production-oriented export management and financial intelligence platform for Indian MSMEs.
+
+This is a commercial software product intended to solve actual business problems for exporters.
+
+It must be designed with the quality, functionality, reliability, usability and technical architecture expected from an application that customers could install through the Google Play Store and use in their daily business operations.
+
+Do not approach this as a hackathon submission, college prototype, presentation mockup or temporary demonstration.
+
+Do not create a collection of attractive dashboards with superficial functionality.
+
+Build a complete business application.
+
+Product name: NiryatFlow AI
+
+Product category: AI-powered export management and financial intelligence.
+
+Primary users:
+
+- Indian MSME exporters.
+- Export business owners.
+- Export operations managers.
+- Financial administrators.
+- Documentation executives.
+- Logistics professionals.
+
+Core value proposition:
+
+NiryatFlow AI connects export order management, financial intelligence, documentation, international payment processing and operational performance into one integrated digital business environment.
+
+The product should help exporters understand, manage, monitor and improve their export operations.
+
+2. TWO WORKSPACES — ONE PRODUCT
+
+Build two independent applications using the same product architecture and visual design.
+
+APPLICATION A — NIRYATFLOW AI
+
+This is the main production-oriented application.
+
+It must support:
+
+- Real user registration.
+- Authentication.
+- Business onboarding.
+- Business profile creation.
+- Actual business records.
+- Cloud persistence.
+- Real document uploads.
+- Real financial calculations.
+- AI-powered analysis.
+- Payment integration.
+- Business reporting.
+- Secure multi-user access.
+
+APPLICATION B — NIRYATFLOW AI SAMPLE BUSINESS WORKSPACE
+
+This is an independent, fully functional application containing a preconfigured fictional export business.
+
+It must use the same:
+
+- Design system.
+- Components.
+- Navigation.
+- Business logic.
+- Data models.
+- Calculation engine.
+- AI services.
+- Integration architecture.
+- Workflows.
+- Application behaviour.
+
+The sample workspace should represent a realistic Indian export company with a complete operational history.
+
+It must be immediately usable without manual data entry.
+
+Users should be able to explore, create, edit, update and reset sample business records.
+
+The sample workspace must never access, modify or overwrite production customer data.
+
+Both applications should feel like the same software product.
+
+Do not add hackathon labels, judge-oriented interfaces or presentation-only features.
+
+The sample workspace is a legitimate product onboarding and evaluation environment.
+
+3. DESIGN SYSTEM AND VISUAL IDENTITY
+
+Use the original NiryatFlow AI implementation and supplied screen recordings as the source of truth.
+
+Preserve the existing visual identity precisely.
+
+Maintain:
+
+- Cinematic global trade-route introduction.
+- Indian export corridor visualization.
+- Animated geographical routes.
+- Quadratic Bézier route animations.
+- Moving telemetry packets.
+- Reveal transitions.
+- Premium fintech visual language.
+- Existing colour palette.
+- Typography.
+- Navigation.
+- Dashboard layouts.
+- Cards.
+- Tables.
+- Financial charts.
+- Status indicators.
+- Micro-interactions.
+
+Do not introduce an unrelated design system.
+
+The design should feel like a premium financial operations product, not a generic admin template.
+
+Improve the original interface only where necessary to achieve production-grade usability.
+
+Prioritize:
+
+- Clear information hierarchy.
+- Readable financial information.
+- Consistent component sizing.
+- Proper responsive behaviour.
+- Accessibility.
+- Fast navigation.
+- Intuitive business workflows.
+- Consistent interactions.
+
+Use mobile-first design while preserving the original desktop experience.
+
+Provide appropriate layouts for:
+
+- Android smartphones.
+- Tablets.
+- Desktop browsers.
+- Resizable screens.
+
+The mobile interface must not simply be a compressed desktop dashboard.
+
+Implement appropriate mobile navigation, bottom navigation where suitable, responsive tables, touch-friendly controls and mobile document previews.
+
+4. APPLICATION ARCHITECTURE
+
+Build the system around a centralized business data architecture.
+
+Recommended technology stack:
+
+Frontend:
+
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Reusable UI components.
+
+Backend:
+
+- Node.js.
+- Secure API architecture.
+- Server-side business logic.
+
+Database:
+
+- Firebase Authentication.
+- Cloud Firestore.
+- Firebase Storage.
+
+AI:
+
+- Gemini API.
+- Structured extraction and analysis.
+- Server-side AI orchestration.
+
+Payments:
+
+- PayPal Sandbox integration.
+- Server-side order creation and capture.
+- Transaction verification.
+
+Deployment:
+
+- GitHub.
+- Vercel or an appropriate backend hosting platform.
+- Firebase services.
+
+Android:
+
+- Architect the application for Android packaging using Capacitor or a suitable native Android implementation.
+- Implement Android-specific navigation, status bar handling, back navigation, secure storage and file handling.
+- Prepare a release-build pipeline for Android App Bundle generation.
+
+Do not assume that a React website automatically becomes a Play Store-ready application.
+
+Keep frontend, backend, business logic, database access and integrations separate.
+
+Suggested project structure:
+
+src/
+app/
+components/
+layouts/
+pages/
+modules/
+dashboard/
+export-orders/
+financial-intelligence/
+document-intelligence/
+payments/
+digital-twin/
+services/
+ai/
+payments/
+documents/
+analytics/
+hooks/
+contexts/
+data/
+types/
+utils/
+
+server/
+api/
+middleware/
+services/
+integrations/
+validation/
+
+shared/
+schemas/
+calculations/
+types/
+
+tests/
+unit/
+integration/
+e2e/
+
+Adjust the structure where technically appropriate.
+
+5. USER AUTHENTICATION AND BUSINESS ONBOARDING
+
+Implement a proper account system.
+
+Required functionality:
+
+- Registration.
+- Login.
+- Logout.
+- Password recovery.
+- Email verification.
+- Session management.
+- Business profile setup.
+- Business information editing.
+- Account settings.
+
+Business onboarding should collect relevant information:
+
+- Business name.
+- Business type.
+- Business address.
+- Contact details.
+- Primary export categories.
+- Country of operation.
+- Preferred currency.
+- Business website, if available.
+- Export experience.
+
+Do not require sensitive business information unnecessarily.
+
+Create a clear onboarding process that introduces the product without overwhelming new users.
+
+Support multiple independent businesses.
+
+A user must only access businesses and records for which they have explicit authorization.
+
+6. MULTI-TENANT BUSINESS ARCHITECTURE
+
+This is a critical requirement.
+
+Each registered business must have its own isolated workspace.
+
+Implement:
+
+- Business identifiers.
+- User-to-business membership.
+- Workspace ownership.
+- Role-based permissions.
+- Record-level access control.
+- Secure database rules.
+- Business-specific storage paths.
+
+Suggested roles:
+
+OWNER
+
+- Full business access.
+- User management.
+- Financial access.
+- Workspace configuration.
+
+ADMIN
+
+- Operational management.
+- Document management.
+- Order management.
+
+FINANCE
+
+- Financial analysis.
+- Invoices.
+- Payments.
+- Financial reports.
+
+OPERATIONS
+
+- Export orders.
+- Shipping information.
+- Documentation workflows.
+
+VIEWER
+
+- Read-only access to authorized records.
+
+All authorization must be enforced on the backend and database rules.
+
+Frontend visibility restrictions alone are insufficient.
+
+7. FIVE CORE INTELLIGENCE MODULES
+
+Implement all five modules as connected business capabilities.
+
+MODULE 1 — EXPORT ORDER INTELLIGENCE
+
+Create a comprehensive export order management system.
+
+Capabilities:
+
+- Create export orders.
+- Edit export orders.
+- View order details.
+- Search orders.
+- Filter orders.
+- Sort records.
+- Track order progress.
+- Associate buyers.
+- Associate products.
+- Associate documents.
+- Associate financial records.
+- Associate payments.
+- Track shipment details.
+- Maintain order activity history.
+
+Order information should include:
+
+- Internal order number.
+- Buyer.
+- Buyer country.
+- Product.
+- HS code where provided.
+- Quantity.
+- Unit price.
+- Currency.
+- Total order value.
+- Incoterms.
+- Destination port.
+- Shipment method.
+- Expected dispatch date.
+- Expected delivery date.
+- Order status.
+
+Support lifecycle stages:
+
+Draft → Confirmed → Processing → Documentation Pending → Ready for Payment → Payment Completed → Shipment In Progress → Delivered → Completed.
+
+Provide cancellation and exception workflows.
+
+Implement Gemini-assisted information extraction from uploaded documents.
+
+AI must return structured data that the user can review before saving.
+
+Never silently overwrite existing business information with AI-extracted values.
+
+Include validation and duplicate detection.
+
+MODULE 2 — FINANCIAL INTELLIGENCE
+
+Build a real export financial calculation engine.
+
+Support:
+
+- Export revenue.
+- Procurement costs.
+- Production costs.
+- Packaging.
+- Transportation.
+- Insurance.
+- Customs-related charges.
+- Documentation expenses.
+- Bank charges.
+- Payment processing fees.
+- Currency conversion.
+- Other operational expenses.
+
+Calculate:
+
+Total Revenue = Confirmed Order Value.
+
+Total Cost = Sum of applicable recorded costs.
+
+Gross Profit = Revenue − Direct Costs.
+
+Net Estimated Profit = Revenue − Total Recorded Costs.
+
+Profit Margin = Net Estimated Profit / Revenue × 100.
+
+Handle missing or incomplete costs explicitly.
+
+Do not display a final profitability figure as verified when important expense inputs are missing.
+
+Provide:
+
+- Order-wise profitability.
+- Monthly revenue.
+- Monthly expenditure.
+- Profitability comparisons.
+- Expense breakdown.
+- Currency exposure.
+- Cash-flow overview.
+- Receivables.
+- Payables.
+- Financial risk indicators.
+
+Exchange rates must have an identifiable source and timestamp when sourced externally.
+
+If a rate is manually entered, identify it as manually supplied.
+
+Do not present estimates as guaranteed future results.
+
+Gemini can interpret the financial results and provide recommendations.
+
+Gemini must not be the source of truth for financial calculations.
+
+MODULE 3 — DOCUMENT INTELLIGENCE
+
+Build a comprehensive export document management system.
+
+Supported document categories:
+
+- Proforma Invoice.
+- Commercial Invoice.
+- Packing List.
+- Purchase Order.
+- Shipping Instructions.
+- Certificate of Origin.
+- Bill of Lading.
+- Insurance Certificate.
+- Product-specific certificates.
+- Supporting compliance documents.
+
+Capabilities:
+
+- Secure upload.
+- Document classification.
+- AI-assisted extraction.
+- Structured field extraction.
+- Missing information detection.
+- Document validation.
+- Document version history.
+- Document-to-order association.
+- Document preview.
+- Download.
+- Search.
+- Status tracking.
+
+Implement a document completeness engine.
+
+Distinguish:
+
+- Uploaded.
+- Extracted.
+- Awaiting Review.
+- Validated Internally.
+- Requires Correction.
+- Missing.
+
+Do not label a document government-approved or legally certified merely because AI has extracted its information.
+
+Implement secure file access, upload limits, allowed file types and file validation.
+
+MODULE 4 — INTERNATIONAL PAYMENT INTELLIGENCE
+
+Integrate PayPal Sandbox.
+
+Build the payment architecture with:
+
+- Payment order creation.
+- Buyer payment initiation.
+- Sandbox checkout.
+- Payment approval.
+- Server-side capture.
+- Transaction verification.
+- Payment history.
+- Payment reconciliation.
+- Refund status tracking.
+- Failed transaction handling.
+- Order-payment association.
+
+Never expose PayPal client secrets.
+
+Never trust payment success information supplied only by the frontend.
+
+Verify the transaction through the backend.
+
+Maintain an immutable transaction reference and audit trail.
+
+Clearly distinguish:
+
+- Pending.
+- Approved.
+- Captured.
+- Failed.
+- Refunded.
+
+For future production deployment, design an integration layer that can support additional payment providers where legally and commercially appropriate.
+
+Do not claim to support real international settlements when only Sandbox is configured.
+
+Do not claim that PayPal is available for every Indian merchant or transaction type without verifying eligibility and current provider requirements.
+
+MODULE 5 — EXPORT PERFORMANCE INTELLIGENCE / DIGITAL TWIN
+
+Implement a unified digital representation for each export order.
+
+Every Digital Twin should connect the five modules.
+
+Display:
+
+- Order information.
+- Buyer.
+- Product.
+- Financial performance.
+- Document readiness.
+- Payment progress.
+- Shipping progress.
+- Current operational stage.
+- Risk indicators.
+- AI recommendations.
+- Activity history.
+
+Implement a consistent event-driven update model.
+
+When an order is edited, its associated information must update across all relevant modules.
+
+When a payment is captured, the payment record and linked order must reflect the verified state.
+
+When a document is uploaded, the relevant document readiness calculations must update.
+
+When shipment progress changes, the Digital Twin must reflect it.
+
+The Digital Twin must be a real connected business view, not a collection of independently generated dashboard values.
+
+8. DASHBOARD AND BUSINESS ANALYTICS
+
+Create a populated, useful business dashboard.
+
+Include:
+
+- Total export value.
+- Active orders.
+- Completed orders.
+- Revenue.
+- Estimated net profit.
+- Pending payments.
+- Outstanding receivables.
+- Document readiness.
+- Order lifecycle distribution.
+- Export destination analytics.
+- Monthly performance.
+- Recent activities.
+- AI-generated business insights.
+- Trade corridor visualization.
+
+Every KPI must derive from actual database records.
+
+Support:
+
+- Date filtering.
+- Business filtering.
+- Currency-aware display.
+- Export-category filtering.
+- Drill-down into source records.
+
+Do not calculate totals by adding values in different currencies without conversion.
+
+Display the base reporting currency clearly.
+
+Allow users to configure their reporting currency.
+
+9. AI INTELLIGENCE LAYER
+
+Integrate Gemini as a real business intelligence service.
+
+Use AI for:
+
+- Export document understanding.
+- Order data extraction.
+- Financial explanations.
+- Risk identification.
+- Missing information detection.
+- Business performance summaries.
+- Export operation recommendations.
+- Natural-language business queries.
+
+Example:
+
+"Which of my active export orders have incomplete documentation?"
+
+"Which orders currently have the lowest estimated profit margins?"
+
+"Show all payments awaiting capture."
+
+"Which destination countries generated the highest revenue this quarter?"
+
+AI responses must be grounded in authorized business data.
+
+Implement:
+
+- Backend authorization before retrieval.
+- Structured AI outputs.
+- Input validation.
+- Error handling.
+- AI response provenance.
+- Appropriate fallback behaviour.
+- Usage limits and cost monitoring.
+
+Never allow an AI model to execute unrestricted database operations.
+
+Use validated application functions to retrieve and modify records.
+
+If Gemini is unavailable, display an honest service-unavailable state rather than inventing an AI result.
+
+10. SAMPLE BUSINESS WORKSPACE
+
+Build a fully functional sample business environment.
+
+This is not a static demonstration.
+
+It is an isolated sample business account using the same application features as the production workspace.
+
+Create a fictional company:
+
+Business: Tamil Nadu Global Exports Pvt. Ltd.
+
+Country: India.
+
+Primary base: Chennai, Tamil Nadu.
+
+Business profile: Mid-sized MSME export business.
+
+Create realistic business records.
+
+Preload:
+
+- 6 export orders.
+- 6 international buyers.
+- 6 product records.
+- 6 financial breakdowns.
+- 20+ document records.
+- 6 historical payment records.
+- 6 Digital Twin records.
+- 20+ activity events.
+- Multiple destination countries.
+- Multiple currencies.
+
+Use these sample orders:
+
+ORDER 001
+Textile products → Germany.
+Currency: EUR.
+Status: Shipment In Progress.
+
+ORDER 002
+Automotive components → United States.
+Currency: USD.
+Status: Payment Completed.
+
+ORDER 003
+Spices → United Arab Emirates.
+Currency: AED.
+Status: Documentation Pending.
+
+ORDER 004
+Electronic components → Singapore.
+Currency: SGD.
+Status: Ready for Payment.
+
+ORDER 005
+Handicraft products → United Kingdom.
+Currency: GBP.
+Status: Completed.
+
+ORDER 006
+Processed agricultural products → Japan.
+Currency: JPY.
+Status: Processing.
+
+Generate consistent supporting records.
+
+The data must be fictional but operationally realistic.
+
+Mark fictional businesses, transactions and documents appropriately.
+
+Do not use fabricated real customer identities or claim that sample transactions actually occurred.
+
+11. SAMPLE WORKSPACE INTERACTION
+
+Provide a simple entry option:
+
+Explore Sample Business
+
+Users should be able to enter the sample workspace without exposing or modifying any production account.
+
+Allow users to:
+
+- View all sample orders.
+- Edit sample orders.
+- Create new sample orders.
+- Upload test documents.
+- Run AI extraction.
+- Review financial calculations.
+- Explore payment workflows.
+- Open Digital Twins.
+- Generate sample reports.
+- Reset the sample workspace.
+
+Implement a controlled reset operation.
+
+The reset must restore the original seeded records.
+
+Never let sample operations affect production customer information.
+
+Persist sample data using a separate database namespace and authorization boundary.
+
+Do not rely solely on localStorage for a multi-user cloud application.
+
+12. REAL BUSINESS WORKFLOWS
+
+Implement end-to-end workflows rather than isolated screens.
+
+WORKFLOW A — NEW EXPORT ORDER
+
+Create order → Add buyer → Add products → Enter pricing → Validate → Save → Create Digital Twin.
+
+WORKFLOW B — DOCUMENT PROCESSING
+
+Upload document → AI extraction → Review → Correct → Validate → Associate with order → Update document readiness.
+
+WORKFLOW C — FINANCIAL ANALYSIS
+
+Open order → Retrieve costs → Calculate profitability → Identify missing expenses → Generate AI explanation.
+
+WORKFLOW D — INTERNATIONAL PAYMENT
+
+Select eligible order → Create PayPal Sandbox payment → Buyer approval → Backend capture → Verify transaction → Update payment status.
+
+WORKFLOW E — EXPORT COMPLETION
+
+Confirm order → Complete documents → Confirm payment conditions → Update shipment → Record delivery → Complete order.
+
+Each workflow must have proper validation, success states, error states and recovery options.
+
+13. SECURITY, PRIVACY AND DATA GOVERNANCE
+
+Implement production-oriented security.
+
+Required:
+
+- HTTPS-only deployment.
+- Secure authentication.
+- Backend authorization.
+- Database security rules.
+- Tenant isolation.
+- Secure API key management.
+- Environment-based secrets.
+- Input validation.
+- File validation.
+- Rate limiting.
+- Audit logging.
+- Error monitoring.
+- Backup strategy.
+- Data deletion procedures.
+- Account deletion support.
+- Privacy policy support.
+
+Do not expose:
+
+- API keys.
+- Payment secrets.
+- Authentication tokens.
+- Private business documents.
+- Customer financial information.
+
+Do not log passwords, payment credentials or confidential documents.
+
+Sensitive documents must only be accessible to authorized users.
+
+Provide explicit user consent before sending documents or business information to third-party AI services.
+
+Do not claim legal or regulatory compliance merely because security features have been implemented.
+
+Prepare the product for applicable Indian data protection, financial and commercial requirements before production release.
+
+14. BUSINESS REPORTING
+
+Provide downloadable business reports.
+
+Supported reports:
+
+- Export Order Report.
+- Financial Performance Report.
+- Outstanding Payment Report.
+- Document Readiness Report.
+- Export Destination Report.
+- Order Completion Report.
+
+Support PDF and CSV exports where appropriate.
+
+Reports must be generated from actual database records.
+
+Include:
+
+- Report generation date.
+- Business name.
+- Reporting period.
+- Reporting currency.
+- Relevant assumptions.
+- Appropriate sample-data markings.
+
+15. PRODUCT EXPERIENCE AND ACCESSIBILITY
+
+Build an application that feels finished and intuitive.
+
+Implement:
+
+- Consistent loading indicators.
+- Skeleton loading.
+- Empty states.
+- Error states.
+- Retry mechanisms.
+- Confirmation dialogs.
+- Toast notifications.
+- Search and filtering.
+- Pagination.
+- Form validation.
+- Accessible controls.
+- Keyboard navigation.
+- Touch-friendly mobile interactions.
+- Clear onboarding.
+- Contextual help.
+
+Support English as the initial interface language.
+
+Architect localization so that Tamil and other Indian languages can be introduced without rebuilding the application.
+
+Support Indian number formatting and appropriate currency formatting.
+
+Do not clutter the interface with unnecessary animations.
+
+The cinematic trade visualization should remain a distinctive brand experience without affecting normal application performance.
+
+16. ANDROID APPLICATION PREPARATION
+
+The long-term distribution target is Google Play Store.
+
+Prepare the application for Android release.
+
+Required:
+
+- Android-compatible application architecture.
+- App icon.
+- Splash screen.
+- Status bar integration.
+- Back-button handling.
+- Safe-area support.
+- File upload and download handling.
+- Network interruption handling.
+- Secure session management.
+- Deep-link architecture where useful.
+- Responsive smartphone layouts.
+- Tablet compatibility.
+- Release build configuration.
+
+Create a valid Android packaging workflow.
+
+If using Capacitor, provide the necessary Android project configuration.
+
+Provide:
+
+- Android application ID placeholder.
+- Version configuration.
+- Signing configuration instructions.
+- Release build instructions.
+- Android App Bundle generation instructions.
+
+Do not claim that the app has been published or approved by Google Play.
+
+Prepare a testing and release checklist.
+
+17. PRODUCTION QUALITY AND TESTING
+
+Do not mark the product complete just because the screens render.
+
+Implement automated and manual verification.
+
+Unit tests:
+
+- Financial formulas.
+- Currency handling.
+- Order validation.
+- Document readiness.
+- Permission checks.
+
+Integration tests:
+
+- Database operations.
+- Authentication.
+- AI extraction.
+- Payment creation.
+- Payment capture.
+- Digital Twin updates.
+
+End-to-end tests:
+
+- Registration.
+- Login.
+- Business onboarding.
+- Order creation.
+- Document upload.
+- Financial analysis.
+- Payment workflow.
+- Report generation.
+- Sample workspace reset.
+
+Performance:
+
+- Optimize initial loading.
+- Minimize unnecessary API calls.
+- Implement pagination.
+- Optimize charts.
+- Optimize large document lists.
+- Avoid blocking the main thread.
+- Handle slow network conditions.
+
+Quality gates:
+
+- No TypeScript errors.
+- No critical console errors.
+- No broken navigation.
+- No non-functional primary actions.
+- No exposed secrets.
+- No unauthorized data access.
+- No inconsistent financial calculations.
+- No fabricated payment states.
+- No broken mobile layouts.
+
+Use realistic error simulations and test recovery behaviour.
+
+18. DEPLOYMENT AND OPERATING COST
+
+Prioritize free-tier and low-cost infrastructure during development.
+
+Use:
+
+- Firebase free-tier resources where sufficient.
+- Gemini API within available quotas.
+- PayPal Sandbox.
+- Free-tier hosting where appropriate.
+- GitHub for source control.
+
+Do not introduce paid dependencies without approval.
+
+However, do not compromise data security or reliability simply to avoid infrastructure costs.
+
+Clearly identify services that require billing, paid quotas or production subscriptions.
+
+Never assume that a free development tier is sufficient for a real commercial launch.
+
+Provide an infrastructure cost breakdown before production deployment.
+
+19. FINAL IMPLEMENTATION PRIORITIES
+
+Follow this implementation order:
+
+PHASE 1 — Product foundation
+
+- Project architecture.
+- Original design system.
+- Authentication.
+- Business onboarding.
+- Database.
+- Tenant isolation.
+
+PHASE 2 — Core business modules
+
+- Export Order Intelligence.
+- Financial Intelligence.
+- Document Intelligence.
+- Payment Intelligence.
+- Digital Twin.
+
+PHASE 3 — AI integration
+
+- Gemini services.
+- Document extraction.
+- Business queries.
+- AI recommendations.
+
+PHASE 4 — Sample Business Workspace
+
+- Seed realistic data.
+- Connect all modules.
+- Implement reset.
+- Validate all workflows.
+
+PHASE 5 — Production hardening
+
+- Security.
+- Testing.
+- Error handling.
+- Performance.
+- Reporting.
+- Android packaging.
+
+Do not skip architectural foundations to generate impressive visuals quickly.
+
+Do not implement a superficial version of every module and call the project complete.
+
+Implement working features in dependency order.
+
+20. FINAL ACCEPTANCE CRITERIA
+
+The final product must satisfy these conditions:
+
+1. It looks like the original NiryatFlow AI.
+2. It has a professional commercial-product identity.
+3. It works on mobile and desktop.
+4. It supports secure user accounts.
+5. It supports independent business workspaces.
+6. It manages real export order records.
+7. It calculates financial results correctly.
+8. It processes documents with review and validation.
+9. It supports PayPal Sandbox payment workflows.
+10. It maintains connected Digital Twin records.
+11. It provides meaningful AI intelligence.
+12. It has a fully populated Sample Business Workspace.
+13. Sample data is isolated from production data.
+14. All primary actions work.
+15. Data persists correctly.
+16. Errors are handled safely.
+17. Automated tests pass.
+18. Android packaging is prepared.
+19. No feature is falsely represented as an actual integration.
+20. The application is maintainable and extensible.
+
+FINAL PRODUCT PRINCIPLE
+
+NiryatFlow AI must be developed as a serious commercial business platform.
+
+It must not look or behave like an application created solely to impress hackathon judges.
+
+The Sample Business Workspace is an actual functional environment using fictional business data, not a static mockup.
+
+The Production Workspace is the real customer environment.
+
+Both share the same product identity, components, workflows and underlying business logic, while maintaining strict data isolation.
+
+Build for actual exporters, actual business processes, long-term maintainability, reliability and trust.
+
+NIRYATFLOW AI — ONE CONNECTED EXPORT INTELLIGENCE PLATFORM.

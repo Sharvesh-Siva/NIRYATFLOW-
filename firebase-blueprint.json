@@ -1,0 +1,218 @@
+{
+  "entities": {
+    "ExportOrder": {
+      "title": "ExportOrder",
+      "description": "Represents an export order managed in NiryatFlow AI.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated owner UID" },
+        "orderNumber": { "type": "string", "description": "Unique human-readable export order ID" },
+        "exporterName": { "type": "string", "description": "Exporter business name" },
+        "exporterContact": { "type": "string", "description": "Exporter contact email or phone" },
+        "exporterAddress": { "type": "string", "description": "Exporter origin address in India" },
+        "buyerName": { "type": "string", "description": "International buyer company name" },
+        "buyerCountry": { "type": "string", "description": "Destination buyer country" },
+        "buyerContact": { "type": "string", "description": "Buyer email or phone contact" },
+        "buyerAddress": { "type": "string", "description": "Buyer shipping address" },
+        "productName": { "type": "string", "description": "Exported product name" },
+        "productDescription": { "type": "string", "description": "HS code and product specification" },
+        "quantity": { "type": "number", "description": "Order quantity" },
+        "unit": { "type": "string", "description": "Unit of measurement (e.g., KG, PCS, MT)" },
+        "unitPrice": { "type": "number", "description": "Price per unit in order currency" },
+        "orderValue": { "type": "number", "description": "Gross order value (quantity * unitPrice)" },
+        "currency": { "type": "string", "description": "ISO currency code (USD, EUR, GBP, AED, etc.)" },
+        "incoterm": { "type": "string", "description": "Incoterm (FOB, CIF, EXW, DDP, CFR)" },
+        "destinationPort": { "type": "string", "description": "Delivery destination port or city" },
+        "orderDate": { "type": "string", "description": "Order date (YYYY-MM-DD)" },
+        "expectedShipmentDate": { "type": "string", "description": "Expected shipment date (YYYY-MM-DD)" },
+        "paymentTerms": { "type": "string", "description": "Payment terms (e.g., 30% Advance, 70% CAD)" },
+        "advancePercentage": { "type": "number", "description": "Advance payment percentage (0 to 100)" },
+        "orderStatus": { "type": "string", "description": "Order lifecycle status" },
+        "extractionSource": { "type": "string", "description": "MANUAL or AI_EXTRACTED_CONFIRMED" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server creation timestamp via FieldValue.serverTimestamp()" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server update timestamp via FieldValue.serverTimestamp()" }
+      },
+      "required": [
+        "userId",
+        "orderNumber",
+        "exporterName",
+        "buyerName",
+        "buyerCountry",
+        "productName",
+        "quantity",
+        "unit",
+        "unitPrice",
+        "orderValue",
+        "currency",
+        "incoterm",
+        "destinationPort",
+        "paymentTerms",
+        "advancePercentage",
+        "orderStatus",
+        "extractionSource",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "FinancialAssessment": {
+      "title": "FinancialAssessment",
+      "description": "Deterministic financial viability assessment for an export order.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated owner UID" },
+        "exportOrderId": { "type": "string", "description": "Associated ExportOrder document ID" },
+        "grossOrderValue": { "type": "number", "description": "Gross order value in foreign currency" },
+        "currency": { "type": "string", "description": "Order currency code" },
+        "exchangeRate": { "type": "number", "description": "Explicit exchange rate to INR" },
+        "convertedValueInr": { "type": "number", "description": "Gross order value converted to INR" },
+        "advancePercentage": { "type": "number", "description": "Advance percentage" },
+        "advanceAmount": { "type": "number", "description": "Advance amount in foreign currency" },
+        "outstandingAmount": { "type": "number", "description": "Outstanding balance in foreign currency" },
+        "paymentFeePercentage": { "type": "number", "description": "Payment gateway percentage fee" },
+        "paymentFixedFee": { "type": "number", "description": "Payment gateway fixed fee in foreign currency" },
+        "paymentFeeInr": { "type": "number", "description": "Total payment fee in INR" },
+        "procurementCostInr": { "type": "number", "description": "Product or procurement cost in INR" },
+        "logisticsCostInr": { "type": "number", "description": "Freight and logistics cost in INR" },
+        "packagingCostInr": { "type": "number", "description": "Export packaging cost in INR" },
+        "otherCostsInr": { "type": "number", "description": "Customs/insurance/other expenses in INR" },
+        "estimatedNetRevenueInr": { "type": "number", "description": "Net revenue in INR after payment fees" },
+        "estimatedProfitInr": { "type": "number", "description": "Estimated profit in INR" },
+        "profitMarginPercent": { "type": "number", "description": "Profit margin percentage" },
+        "assumptionsNote": { "type": "string", "description": "Explicit calculation assumptions" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server creation timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server update timestamp" }
+      },
+      "required": [
+        "userId",
+        "exportOrderId",
+        "grossOrderValue",
+        "currency",
+        "exchangeRate",
+        "convertedValueInr",
+        "advancePercentage",
+        "advanceAmount",
+        "outstandingAmount",
+        "paymentFeePercentage",
+        "paymentFixedFee",
+        "paymentFeeInr",
+        "procurementCostInr",
+        "logisticsCostInr",
+        "packagingCostInr",
+        "otherCostsInr",
+        "estimatedNetRevenueInr",
+        "estimatedProfitInr",
+        "profitMarginPercent",
+        "assumptionsNote",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "DocumentRecord": {
+      "title": "DocumentRecord",
+      "description": "Export documentation checklist item and verification status.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated owner UID" },
+        "exportOrderId": { "type": "string", "description": "Associated ExportOrder document ID" },
+        "documentType": { "type": "string", "description": "Document category name" },
+        "requirementLevel": { "type": "string", "description": "REQUIRED, OPTIONAL, or NOT_APPLICABLE" },
+        "status": { "type": "string", "description": "MISSING, UPLOADED, UNDER_REVIEW, VERIFIED, REJECTED, or REUPLOAD_REQUIRED" },
+        "fileName": { "type": "string", "description": "Uploaded file name or empty if missing" },
+        "fileReference": { "type": "string", "description": "URI or reference summary" },
+        "reviewerNote": { "type": "string", "description": "Verification or review note" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server creation timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server update timestamp" }
+      },
+      "required": [
+        "userId",
+        "exportOrderId",
+        "documentType",
+        "requirementLevel",
+        "status",
+        "fileName",
+        "fileReference",
+        "reviewerNote",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "PaymentRecord": {
+      "title": "PaymentRecord",
+      "description": "PayPal Sandbox international payment record for an export order.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated owner UID" },
+        "exportOrderId": { "type": "string", "description": "Associated ExportOrder document ID" },
+        "paypalOrderId": { "type": "string", "description": "PayPal Sandbox Order ID" },
+        "paypalCaptureId": { "type": "string", "description": "PayPal Sandbox Capture ID" },
+        "approvalUrl": { "type": "string", "description": "PayPal Sandbox buyer approval URL" },
+        "amount": { "type": "number", "description": "Payment amount in currency" },
+        "currency": { "type": "string", "description": "Payment currency code (USD, EUR, GBP)" },
+        "paymentType": { "type": "string", "description": "ADVANCE, BALANCE, or FULL" },
+        "paymentStatus": { "type": "string", "description": "NOT_INITIATED, PENDING_APPROVAL, APPROVED, CAPTURED, FAILED, CANCELLED, or REQUIRES_RECONCILIATION" },
+        "verificationDetails": { "type": "string", "description": "PayPal API verification response details" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server creation timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server update timestamp" }
+      },
+      "required": [
+        "userId",
+        "exportOrderId",
+        "paypalOrderId",
+        "paypalCaptureId",
+        "approvalUrl",
+        "amount",
+        "currency",
+        "paymentType",
+        "paymentStatus",
+        "verificationDetails",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "ActivityRecord": {
+      "title": "ActivityRecord",
+      "description": "Audit and lifecycle event log entry for export orders.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "Authenticated owner UID" },
+        "exportOrderId": { "type": "string", "description": "Associated ExportOrder document ID" },
+        "eventType": { "type": "string", "description": "ORDER_CREATED, AI_EXTRACTED, FINANCIAL_UPDATED, DOC_UPLOADED, DOC_VERIFIED, PAYMENT_CREATED, PAYMENT_CAPTURED, STATUS_CHANGED" },
+        "title": { "type": "string", "description": "Short activity headline" },
+        "description": { "type": "string", "description": "Detailed event description" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Server creation timestamp" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Server update timestamp" }
+      },
+      "required": [
+        "userId",
+        "exportOrderId",
+        "eventType",
+        "title",
+        "description",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/export_orders/{orderId}": {
+      "schema": { "$ref": "#/entities/ExportOrder" },
+      "description": "Stores export orders scoped by userId."
+    },
+    "/financial_assessments/{assessmentId}": {
+      "schema": { "$ref": "#/entities/FinancialAssessment" },
+      "description": "Stores deterministic financial assessments for export orders."
+    },
+    "/document_records/{docId}": {
+      "schema": { "$ref": "#/entities/DocumentRecord" },
+      "description": "Stores export documentation checklist items and verification states."
+    },
+    "/payment_records/{paymentId}": {
+      "schema": { "$ref": "#/entities/PaymentRecord" },
+      "description": "Stores PayPal Sandbox payment lifecycle records."
+    },
+    "/activity_records/{activityId}": {
+      "schema": { "$ref": "#/entities/ActivityRecord" },
+      "description": "Stores audit and lifecycle activity events."
+    }
+  }
+}
