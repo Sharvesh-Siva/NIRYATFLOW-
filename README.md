@@ -1,101 +1,251 @@
-# NiryatFlow AI — Export Intelligence & Cross-Border Trade Finance Platform (Android + Web SaaS)
+# NiryatFlow AI
+### Intelligent Export Management Platform
+**Move Trade Forward. Think Beyond Borders.**
 
-**NiryatFlow AI** is a dual-platform (**Android Kotlin/Jetpack Compose** + **React/TypeScript/Vite Web SaaS**) export management, deterministic trade finance, compliance document verification, and order digital twin platform engineered for Indian MSME exporters.
+NiryatFlow AI is a multi-platform export operations and trade-finance workspace designed to help exporters organise purchase orders, monitor export workflows, understand financial exposure, manage trade documents, assess operational risks, and test cross-border payment flows.
 
-Both the **original Android implementation (`/app`)** and the **complete Web Application (`/web`)** co-exist in this workspace without overwriting or breaking any existing functionality.
+The repository contains a React/TypeScript web experience, a native Android application built with Kotlin and Jetpack Compose, an Express/Gemini/PayPal Sandbox server, and Firebase Cloud Functions for authenticated payment operations.
+
+> **Project status:** This repository includes working application modules and sample business data. Some integrations require external credentials and deployment configuration. PayPal Sandbox code is present, but a successful end-to-end Sandbox transaction must be independently tested in the target environment before describing it as verified. Demo payments are simulations, not real transactions.
 
 ---
 
-## 1. Project Workspace Architecture
+## Product overview
+
+NiryatFlow AI brings key export workflows into one interface:
+
+| Module | Purpose |
+| --- | --- |
+| Executive Dashboard | Portfolio overview, order performance, receivables, and time-period analytics |
+| Export Order Management | Create, update, search, filter, and export order records |
+| AI Purchase Order Intelligence | Extract structured trade details from purchase-order text, with human review |
+| Export Order Digital Twin | Track readiness across an eight-stage export lifecycle |
+| Shipment Intelligence | Review shipment and logistics information available in the workspace |
+| Document Centre | Organise document records, versions, and SHA-256 integrity digests |
+| Financial Intelligence | Calculate order-level financial assessments using deterministic business logic |
+| What-If Simulator | Explore hypothetical changes to exchange rates, costs, and payment assumptions |
+| Receivables & Cash Flow | Review advance, balance, outstanding, and collection information |
+| Buyer Intelligence | Review buyer and portfolio information available in the workspace |
+| Trade Risk Intelligence | Surface evidence-based documentation, receivable, and margin alerts |
+| AI Advisor | Ask natural-language questions grounded in the supplied workspace data |
+| Payment Hub | Separate simulated Demo Mode from PayPal Sandbox payment workflows |
+| Reporting & Audit | Export operational/financial reports and review recorded activity |
+
+### Important capability boundaries
+
+- **Demo Mode:** Uses a deterministic local simulation. A demo capture is not a PayPal payment.
+- **PayPal Sandbox:** Server-side Orders v2 integration code supports order creation, approval return handling, status lookup, capture, and cancellation in the Express server. Credentials and a reachable backend are required. Configure and test the complete buyer-approval/capture cycle before claiming it is operational.
+- **Firebase Cloud Functions:** The `functions/` workspace contains authenticated Firebase Functions for PayPal Sandbox order creation and capture. Configure Firebase Authentication, Firestore, Secret Manager, and production return/cancel URLs before deployment. The current source contains example callback URLs that must be replaced.
+- **Document integrity:** SHA-256 can detect a difference from a previously recorded digest. It does not prove the origin, authenticity, or legal validity of a document.
+- **Shipment visibility:** The application displays shipment-related workspace information; live carrier tracking requires a connected logistics provider.
+- **Compliance:** NiryatFlow AI is an operational support tool, not an official DGFT, Customs, ICEGATE, or legal filing system.
+
+---
+
+## Technology stack
+
+| Layer | Technologies |
+| --- | --- |
+| Web UI | React, TypeScript, Vite, CSS |
+| Android | Kotlin, Jetpack Compose, AndroidX |
+| AI | Google Gemini via the `@google/genai` SDK |
+| Server | Node.js, Express, TypeScript/TSX |
+| Payments | PayPal REST API — Sandbox Orders v2 |
+| Backend services | Firebase Admin SDK, Firebase Authentication, Cloud Firestore, Firebase Cloud Functions |
+| Integrity | Web Crypto API / SHA-256; Android `MessageDigest` |
+| Build & quality | npm, TypeScript, Gradle, Robolectric/JUnit |
+
+---
+
+## Repository structure
 
 ```text
-├── app/                                 # Complete Native Android Application (Kotlin + Jetpack Compose)
-│   ├── src/main/java/com/example/
-│   │   ├── data/model/NiryatModels.kt
-│   │   ├── data/sample/SampleBusinessWorkspaceSeeder.kt
-│   │   ├── data/sample/SampleWorkspaceLocalStore.kt
-│   │   ├── domain/FinancialCalculationEngine.kt
-│   │   ├── domain/TradeRiskEngine.kt
-│   │   ├── service/DemoPaymentService.kt
-│   │   ├── service/PayPalSandboxService.kt
-│   │   ├── service/GeminiIntelligenceService.kt
-│   │   ├── ui/screens/...
-│   │   └── ui/viewmodel/NiryatViewModel.kt
-│   └── src/test/java/com/example/       # Unit & Robolectric Automated Verification Suite
-├── web/                                 # Complete Web SaaS Application (React 18 + TypeScript + Vite)
-│   ├── package.json
-│   ├── tsconfig.json
-│   ├── vite.config.ts
-│   ├── index.html
+.
+├── app/                         # Native Android application (Kotlin + Compose)
 │   └── src/
-│       ├── types/models.ts              # Shared domain data models
-│       ├── domain/financialEngine.ts    # Deterministic INR math, 8-stage Digital Twin, Period Analytics & Risk Engine
-│       ├── data/sampleWorkspaceSeeder.ts# 6 Multi-currency orders, 6 assessments, 30 docs, 6 payments, localStorage isolation
-│       ├── services/demoPaymentService.ts# Zero-Cost Demo Mode payment lifecycle & idempotency
-│       ├── services/aiIntelligenceService.ts # AI PO Extraction, Financial Viability Analyst & Natural-Language Query Engine
-│       ├── styles/fintech.css           # Responsive Warm Minimal Fintech design system
-│       ├── App.tsx                      # Complete 8-module Web SaaS interface
-│       └── main.tsx
-├── firestore.rules                      # Strict per-user Firestore security rules
-└── .env.example                         # Environment configuration template (PayPal backend optional)
+│       ├── main/                 # Screens, services, domain logic, assets
+│       └── test/                 # Android unit/Robolectric tests
+├── src/                         # Primary server-backed React web client
+│   ├── components/               # Brand, intelligence, and payment UI
+│   ├── data/                     # Sample workspace seeding
+│   ├── domain/                   # Financial and trade-domain calculations
+│   ├── services/                 # AI, demo payments, PayPal, reporting
+│   ├── styles/                   # Fintech design system
+│   └── types/                    # Shared TypeScript domain models
+├── web/                         # Separate standalone Vite web workspace
+├── functions/                   # Firebase Cloud Functions (Node.js 20)
+├── public/                      # Public assets and packaged web resources
+├── server.ts                    # Express API + Gemini + PayPal Sandbox routes
+├── firestore.rules              # Firestore access-control rules
+├── firebase.json                # Firebase emulator/deployment configuration
+├── .env.example                 # Local environment-variable template
+├── package.json                 # Primary web/server scripts and dependencies
+└── README.md
+```
+
+The root application and `web/` are separate Vite workspaces with separate package manifests. The root scripts run the server-backed application. Use the `web/` instructions only when intentionally working on that standalone workspace.
+
+---
+
+## Getting started
+
+### Prerequisites
+
+- Node.js and npm (use a current LTS release compatible with the installed dependencies)
+- Java and Android Studio for Android development
+- Android SDK configured through Android Studio
+- Optional: Firebase project, Gemini API key, and PayPal Developer Sandbox app for connected services
+
+### 1. Run the primary web application
+
+From the repository root:
+
+```bash
+npm install
+npm run dev
+```
+
+The development server starts the Express API and Vite middleware. Open the local URL printed in the terminal (the server currently listens on port `3000`).
+
+### 2. Build and type-check the web application
+
+```bash
+npm run lint
+npm run build
+```
+
+- `npm run lint` runs the TypeScript compiler in no-emit mode.
+- `npm run build` creates the Vite production assets in `dist/`.
+
+To run the Express server against the production assets, build first and start the TypeScript server with the installed TSX runner:
+
+```bash
+NODE_ENV=production npx tsx server.ts
+```
+
+### 3. Run the standalone `web/` workspace
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+Build it with:
+
+```bash
+npm run build
+```
+
+### 4. Build and test Android
+
+Open the repository in Android Studio, allow Gradle sync to complete, then run the `app` configuration on an emulator or device.
+
+With Gradle installed and configured:
+
+```bash
+gradle assembleDebug
+gradle :app:testDebugUnitTest
+```
+
+The debug APK is generated under `app/build/outputs/apk/debug/`.
+
+### 5. Build Firebase Functions
+
+```bash
+cd functions
+npm install
+npm run build
+```
+
+Deploy only after configuring the Firebase project, Authentication, Firestore, and required secrets:
+
+```bash
+firebase deploy --only functions
 ```
 
 ---
 
-## 2. Web Application Setup & Deployment (`/web`)
+## Configuration
 
-### Local Development
-1. Install dependencies:
-   ```bash
-   npm --prefix web install
-   ```
-2. Launch the Vite development server:
-   ```bash
-   npm --prefix web run dev
-   ```
-   Open `http://localhost:5173` in any desktop or mobile browser.
+Copy `.env.example` to `.env` for local server development and replace placeholders with your own values:
 
-### Production Web Build & Static Deployment
-1. Build the production bundle:
-   ```bash
-   npm --prefix web run build
-   ```
-   This compiles TypeScript (`tsc -b`) and generates a static production bundle in `web/dist/`.
-2. Preview the production bundle locally:
-   ```bash
-   npm --prefix web run preview
-   ```
-3. Deploy `web/dist/` directly to **Firebase Hosting**, **Vercel**, **Netlify**, **Cloudflare Pages**, or **GitHub Pages** (`vite.config.ts` is pre-configured with `base: './'` for portable asset resolution).
+| Variable | Purpose |
+| --- | --- |
+| `GEMINI_API_KEY` | Server-side Gemini API access |
+| `APP_URL` | Public application base URL used by the server |
+| `PAYPAL_CLIENT_ID` | PayPal Sandbox REST app client ID |
+| `PAYPAL_CLIENT_SECRET` | PayPal Sandbox REST app secret |
+| `PAYPAL_ENV` | Sandbox environment selector |
+
+Never commit `.env`, Firebase service-account files, signing keys, access tokens, or real credentials. The repository ignores local environment files and the local PayPal ledger; keep that protection in place.
+
+For Firebase Functions, configure the secrets named `PAYPAL_SANDBOX_CLIENT_ID` and `PAYPAL_SANDBOX_CLIENT_SECRET` using Firebase/Google Cloud Secret Manager. These are distinct from the root Express server's `PAYPAL_CLIENT_ID` and `PAYPAL_CLIENT_SECRET` variables.
+
+See [docs/CONFIGURATION.md](docs/CONFIGURATION.md) and [SECURITY.md](SECURITY.md) before enabling connected services.
 
 ---
 
-## 3. Android Application Build & Test (`/app`)
+## Sample workspace and data handling
 
-1. **Zero-Cost Demo Mode by Default**: No `PAYPAL_BACKEND_BASE_URL`, PayPal Client Secret, or Firebase Blaze upgrade is required to build or run the Sample Business Workspace.
-2. **Build Debug APK**:
-   ```bash
-   gradle assembleDebug
-   ```
-3. **Run Unit & Robolectric Tests**:
-   ```bash
-   gradle :app:testDebugUnitTest
-   ```
+The seeded demonstration workspace represents **Tamil Nadu Global Exports Pvt. Ltd.** and includes six sample export orders across multiple currencies, with related financial assessments, document records, payment examples, and activity data.
+
+Sample records are for demonstration and testing; they are not live customer, buyer, shipment, or payment records. Workspace persistence differs by platform and mode. Review the application settings and source implementation before using the project with business data.
+
+Financial calculations are implemented in a dedicated domain engine. AI responses are intended to interpret supplied workspace data, not replace authoritative calculations or invent missing records.
 
 ---
 
-## 4. Capability Matrix (Implemented, Simulated & Optional Capabilities)
+## Payment integration notes
 
-| Capability / Module | Web (`/web`) | Android (`/app`) | Implementation Status & Transparency Notes |
-| :--- | :---: | :---: | :--- |
-| **1. Executive Dashboard (`1D`, `1W`, `1M`, `3M`, `1Y`, `ALL`)** | ✅ Implemented | ✅ Implemented | Real-time period filtering, prior-period growth comparison, dual-series SVG/Canvas telemetry curve, and destination corridor breakdown. |
-| **2. Export Order Management** | ✅ Implemented | ✅ Implemented | Full Create, Status Update, Search/Filter, Delete, and CSV ledger export. |
-| **3. AI Order Intelligence (PO Extraction)** | ✅ Implemented | ✅ Implemented | Deterministic local PO parser in Zero-Cost Demo Mode + optional live Gemini 2.5 Flash structured JSON extraction with human-in-the-loop confirmation. |
-| **4. Autonomous AI Advisor & NL Query Engine** | ✅ Implemented | ✅ Implemented | Answers natural-language queries grounded strictly in live workspace orders, documents, and payment records without hallucinating external data. |
-| **5. Financial Intelligence & What-If Simulator** | ✅ Implemented | ✅ Implemented | Deterministic INR math, FX/Advance/Fee calculation, expandable formula audit, and isolated hypothetical What-If sliders. |
-| **6. Trade Risk Intelligence (`TradeRiskEngine`)** | ✅ Implemented | ✅ Implemented | Evaluates documentation, receivable settlement, and thin-margin risks with evidence and one-click action routing. |
-| **7. 8-Stage Export Order Digital Twin** | ✅ Implemented | ✅ Implemented | End-to-end 8-stage readiness tracker with outstanding pre-shipment blockers and stage status chips. |
-| **8. Payment Hub (`DemoPaymentService`)** | ⚡ Simulated (Demo Mode) | ⚡ Simulated (Demo Mode) | Supports `DEMO_PENDING`, `DEMO_CAPTURED`, `DEMO_FAILED`, `DEMO_CANCELLED`, and idempotent `DEMO-TXN-*` / `DEMO-CAP-*` references. Explicitly labeled: `"SIMULATED PAYMENT — NOT A REAL PAYPAL TRANSACTION"`. |
-| **9. Document Centre & SHA-256 Hashing** | ✅ Implemented (Browser Local) | ✅ Implemented (Device Local) | Computes real `SHA-256` checksums (`crypto.subtle.digest` on Web, `MessageDigest` on Android), validates `<= 15 MB` PDF/Image size, and tracks versions (`v1`, `v2`). Explicitly labeled as locally stored and not officially certified by DGFT/Customs. |
-| **10. Sample Business Workspace** | ✅ Implemented | ✅ Implemented | Pre-loaded with *Tamil Nadu Global Exports Pvt. Ltd.* (6 orders `ORDER-001`..`ORDER-006` in `EUR`, `USD`, `AED`, `GBP`, `JPY`, 6 financial assessments, 30 document records, 6 payments, and activity logs). |
-| **11. Persistence, Reset & Isolation** | ✅ Implemented | ✅ Implemented | Sample workspace edits persist in `localStorage` (`niryat_sample_workspace_v1`) / `SharedPreferences` with one-click Reset, strictly isolated from Production Workspace (`niryat_production_workspace_v1` / Firestore). |
-| **12. Live PayPal Backend / Customs ICEGATE API** | ⚠️ Optional / External | ⚠️ Optional / External | Live PayPal OAuth2 requires an external backend (`PAYPAL_BACKEND_BASE_URL`) so `PAYPAL_SANDBOX_CLIENT_SECRET` is never bundled in client code. Direct government ICEGATE/DGFT API filing is not connected. |
+The Payment Hub separates two flows:
+
+1. **Demo Mode** — local deterministic simulation for demonstrating payment states without contacting PayPal.
+2. **PayPal Sandbox** — calls PayPal's Sandbox REST API from a server-side component. The browser must never receive the Client Secret or OAuth access token.
+
+The root Express server exposes health, configuration-status, order-creation, order-status, capture, and cancellation routes. The `functions/` directory contains Firebase Functions that validate Firebase ID tokens and use Secret Manager for PayPal credentials.
+
+These are separate backend paths. Do not assume that configuring one automatically configures the other. The Firebase Functions source currently uses example return/cancel URLs; replace them with the deployed application's verified callback routes before production use. Review [SECURITY.md](SECURITY.md) and [docs/CONFIGURATION.md](docs/CONFIGURATION.md).
+
+---
+
+## Testing and verification
+
+Run the checks relevant to the part you changed:
+
+```bash
+npm run lint
+npm run build
+gradle :app:testDebugUnitTest
+```
+
+For payment changes, also test Sandbox order creation, buyer approval, capture, cancellation, duplicate requests, invalid order/amount/currency, missing credentials, and PayPal API failures. A successful build is not proof of a successful live Sandbox transaction.
+
+---
+
+## Roadmap
+
+- Complete and verify end-to-end PayPal Sandbox flows in the deployed environment.
+- Replace placeholder payment callback URLs and finalise the chosen backend route.
+- Connect live shipment events through a logistics provider.
+- Expand document validation and export-compliance support with authoritative sources.
+- Improve multi-user production data isolation, monitoring, and deployment automation.
+- Add broader automated tests for web workflows, API validation, and payment edge cases.
+
+---
+
+## Contributing
+
+Contributions and issue reports are welcome. Before submitting changes, read [CONTRIBUTING.md](CONTRIBUTING.md). Keep financial calculations deterministic, preserve Demo/Sandbox separation, and never add secrets or real customer data to commits.
+
+## Security
+
+Please do not report vulnerabilities in public issues. Follow the private reporting guidance in [SECURITY.md](SECURITY.md).
+
+## License
+
+No open-source license is currently declared in this repository. Unless a license is added by the project owner, all rights remain reserved and reuse is not automatically permitted.
+
+---
+
+**NiryatFlow AI — Move Trade Forward. Think Beyond Borders.**
