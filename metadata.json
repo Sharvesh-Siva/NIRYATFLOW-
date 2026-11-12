@@ -1,6 +1,8 @@
 {
   "name": "NiryatFlow AI",
-  "description": "Enterprise export operations, digital twin workflow, and financial intelligence platform for Indian exporters.",
+  "description": "AI-assisted export operations and trade finance workspace with order intelligence, an eight-stage export lifecycle, financial analytics, document integrity checks, trade risk insights, and PayPal Sandbox workflows.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
